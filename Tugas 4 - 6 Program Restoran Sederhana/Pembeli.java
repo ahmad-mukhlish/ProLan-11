@@ -5,8 +5,9 @@ class Pembeli
 
     String nama ;
     int bangku ;
-    int uang_masuk, kembalian ;
-
+    static int uang_masuk, kembalian, pilihan  ; 
+        
+    
     //inisiasi Scanner
     Scanner input = new Scanner(System.in) ;
  
@@ -44,34 +45,21 @@ class Pembeli
     }
     
     //prosedur penampil menu yang tersedia
-    public void tampilkan()      
-    { 
-      Makanan tampil1 = new Makanan('A') ;
-      Makanan tampil2 = new Makanan('B') ;
-      Makanan tampil3 = new Makanan('C') ;
-      Makanan tampil4 = new Makanan('D') ;
-      Makanan tampil5 = new Makanan('E') ;
-      System.out.println("\nPaket A : "+tampil1.nama_makanan+" "+tampil1.harga) ;   
-      System.out.println("Paket B : "+tampil2.nama_makanan+" "+tampil2.harga) ;
-      System.out.println("Paket C : "+tampil3.nama_makanan+" "+tampil3.harga) ;  
-      System.out.println("Paket D : "+tampil4.nama_makanan+" "+tampil4.harga) ;
-      System.out.println("Paket E : "+tampil5.nama_makanan+" "+tampil5.harga) ;  
-     
-    }
+  
     
     //fungsi pemilihan menu dengan nilai balik char
-    public char pilih_menu() {
+    public void pilih_menu() {
         System.out.print("\nSilakan Masukan Pilihan Pembeli \t: ") ;
-        return input.next().charAt(0) ;    
+        pilihan = input.nextInt() ;    
 
     }
    
     public boolean pembungkusan()
     {   
         
-        System.out.print("Makan sini atau bawa pulang? [Y/T] \t: ") ;
-        char pilihan = input.next().charAt(0) ;
-        return (pilihan == 'Y' || pilihan  == 'y') ;     
+        System.out.print("Makan disini? [Y/T] \t\t\t: ") ;
+        char pulang = input.next().charAt(0) ;
+        return (pulang == 'Y' || pulang  == 'y') ;     
                 
     }        
     
@@ -82,7 +70,7 @@ class Pembeli
         System.out.print("Uang masuk pembeli \t\t\t: ") ;
         uang_masuk = input.nextInt() ;
         kembalian = uang_masuk - harga ;
-        System.out.println("\nHarga makanan : " + harga + "\nUang kembalian pembeli : " +kembalian+"\n") ;
+        System.out.println("\nHarga makanan \t\t\t\t: " + harga + "\nUang kembalian pembeli \t\t\t: " +kembalian+"\n") ;
 
     }
     
@@ -92,7 +80,7 @@ class Pembeli
         System.out.print("Uang masuk pembeli \t\t\t: ") ;
         uang_masuk = input.nextInt() ;
         kembalian = uang_masuk - harga - bungkus ;
-        System.out.println("\nHarga makanan : " +harga+ "\nHarga pembungkusan untuk dibawa : " +bungkus+  "\nUang kembalian pembeli : " +kembalian+"\n") ;
+        System.out.println("\nHarga makanan \t\t\t\t: " +harga+ "\nHarga pembungkusan untuk dibawa \t: " +bungkus+  "\nUang kembalian pembeli \t\t\t: " +kembalian+"\n") ;
 
     }
     

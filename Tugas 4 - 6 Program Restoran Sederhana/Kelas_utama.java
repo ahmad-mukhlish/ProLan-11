@@ -13,6 +13,8 @@ public class Kelas_utama {
       Date tanggal = new Date() ;
       SimpleDateFormat penanggalan = new SimpleDateFormat("dd-MMM-yyyy") ;
       
+      //deklarasi variabel lokal 
+      int i ;
       
       //header program
       System.out.println("\nProgram Restoran Sangat Sederhana") ;
@@ -20,8 +22,14 @@ public class Kelas_utama {
       System.out.println("Tanggal \t\t\t\t: "+penanggalan.format(tanggal)); 
       customer.setNama(customer.getNama()) ;
       customer.setBangku(customer.getBangku()) ;
-      customer.tampilkan() ;
-      Makanan Pesanan = new Makanan(customer.pilih_menu()) ;
+      System.out.println() ;
+      for (i=1 ; i<6 ; i++)
+       { //penggunaan method static tampilkan dengan referensi kelas Makanan dan objek anonim pada kelas Makanan
+         Makanan.tampilkan(new Makanan(i), i) ;
+       }    
+      customer.pilih_menu() ;
+      //penggunaan static variabel pilihan dengan referensi kelas Pembeli 
+      Makanan Pesanan = new Makanan(Pembeli.pilihan) ;
       if (Pesanan.jadi)
        {    
         if (customer.pembungkusan())
@@ -29,6 +37,7 @@ public class Kelas_utama {
         else
          customer.transaksi(Pesanan.harga) ; 
        }  
+      
        
       System.out.println("\nTerimakasih atas kedatangannya ^_^\n") ; 
       
