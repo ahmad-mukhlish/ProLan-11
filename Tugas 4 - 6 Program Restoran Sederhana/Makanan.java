@@ -54,12 +54,6 @@ public class Makanan {
       System.out.println("Paket "+kode+"  : "+penampil.nama_makanan+" "+penampil.harga) ;   
     }
        
-   
-    
-    
- 
-    
-   
       
 
         

@@ -4,13 +4,13 @@ class Pembeli
     //variabel global kelas pembeli
 
     String nama ;
-    int bangku ;
-    static int uang_masuk, kembalian, pilihan  ; 
+    double potongan, kembalian, total_bayar, pajak ;
+    int bangku, uang_masuk, pilihan  ; 
+    static final double DISCOUNT = 0.05, PPN = 0.1 ;
         
     
     //inisiasi Scanner
     Scanner input = new Scanner(System.in) ;
- 
 
     //method - method pembeli
     
@@ -57,31 +57,63 @@ class Pembeli
     public boolean pembungkusan()
     {   
         
-        System.out.print("Makan disini? [Y/T] \t\t\t: ") ;
+        System.out.print("Dibungkus untuk pulang? [Y/T] \t\t: ") ;
         char pulang = input.next().charAt(0) ;
         return (pulang == 'Y' || pulang  == 'y') ;     
                 
     }        
     
     
+    public void hitungPotongan(int pembayaran)
+    {
+        if ((pembayaran) >= 18000)
+            potongan = DISCOUNT * pembayaran ;
+          
+    }
+    
+    
     //prosedur overload, yang ini tanpa parameter bungkus
     public void transaksi(int harga) 
-    { 
-        System.out.print("Uang masuk pembeli \t\t\t: ") ;
-        uang_masuk = input.nextInt() ;
-        kembalian = uang_masuk - harga ;
-        System.out.println("\nHarga makanan \t\t\t\t: " + harga + "\nUang kembalian pembeli \t\t\t: " +kembalian+"\n") ;
-
+    {   
+        this.hitungPotongan(harga) ;
+        total_bayar = (harga - potongan) ;
+        pajak = (PPN*total_bayar) ;
+        total_bayar += pajak ;
+        
+        System.out.println("\nHarga makanan \t\t\t\t: " +harga) ;
+        System.out.printf("Potongan harga \t\t\t\t: %.0f\n",potongan) ;
+        System.out.printf("Pajak PPN (10 persen) \t\t\t: %.0f\n",pajak) ; 
+        System.out.printf("Total Bayar \t\t\t\t: %.0f\n",total_bayar) ;
+        
+        System.out.print("\nUang masuk pembeli \t\t\t: ") ;
+        uang_masuk  = input.nextInt() ; 
+        
+        kembalian   = uang_masuk - total_bayar ;
+        System.out.printf("Kembalian \t\t\t\t: %.0f\n",kembalian) ;
     }
     
     //prosedur overload, yang ini dengan parameter bungkus
      public void transaksi(int harga, int bungkus) 
-    { 
-        System.out.print("Uang masuk pembeli \t\t\t: ") ;
+    {   
+        
+      
+        this.hitungPotongan(harga+bungkus) ;
+        total_bayar = harga + bungkus - potongan ;
+        pajak = (PPN*total_bayar) ;
+        total_bayar += pajak ;
+        
+        System.out.println("\nHarga makanan \t\t\t\t: " +harga) ;
+        System.out.println("Harga bungkusnya \t\t\t: " +bungkus) ;
+        System.out.printf("Potongan harga \t\t\t\t: %.0f\n",potongan) ;
+        System.out.printf("Pajak PPN (10 persen) \t\t\t: %.0f\n",pajak) ; 
+        System.out.printf("Total Bayar \t\t\t\t: %.0f\n",total_bayar) ;
+        
+        System.out.print("\nUang masuk pembeli \t\t\t: ") ;
         uang_masuk = input.nextInt() ;
-        kembalian = uang_masuk - harga - bungkus ;
-        System.out.println("\nHarga makanan \t\t\t\t: " +harga+ "\nHarga pembungkusan untuk dibawa \t: " +bungkus+  "\nUang kembalian pembeli \t\t\t: " +kembalian+"\n") ;
-
+        
+        kembalian = uang_masuk - total_bayar ;
+        System.out.printf("Kembalian \t\t\t\t: %.0f\n",kembalian) ;
+        
     }
     
    

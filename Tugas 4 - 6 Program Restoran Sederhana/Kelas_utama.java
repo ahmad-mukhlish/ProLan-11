@@ -28,14 +28,13 @@ public class Kelas_utama {
          Makanan.tampilkan(new Makanan(i), i) ;
        }    
       customer.pilih_menu() ;
-      //penggunaan static variabel pilihan dengan referensi kelas Pembeli 
-      Makanan Pesanan = new Makanan(Pembeli.pilihan) ;
+      Makanan Pesanan = new Makanan(customer.pilihan) ;
       if (Pesanan.jadi)
        {    
         if (customer.pembungkusan())
-         customer.transaksi(Pesanan.harga,Pesanan.bungkusnya) ;
+          customer.transaksi(Pesanan.harga,Pesanan.bungkusnya) ;
         else
-         customer.transaksi(Pesanan.harga) ; 
+          customer.transaksi(Pesanan.harga) ; 
        }  
       
        
