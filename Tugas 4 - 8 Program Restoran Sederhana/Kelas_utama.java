@@ -6,8 +6,9 @@ public class Kelas_utama {
     
     public static void main(String args[]) 
     { //deklarasi objek - objek yang digunakan :
-      Pembeli customer = new Pembeli() ;
-     
+      
+        Langganan customer = new Langganan() ;   
+
       
       //deklarasi date dan sdf-nya
       Date tanggal = new Date() ;
@@ -22,19 +23,38 @@ public class Kelas_utama {
       System.out.println("Tanggal \t\t\t\t: "+penanggalan.format(tanggal)); 
       customer.setNama(customer.getNama()) ;
       customer.setBangku(customer.getBangku()) ;
+      
       System.out.println() ;
+      
       for (i=1 ; i<6 ; i++)
        { //penggunaan method static tampilkan dengan referensi kelas Makanan dan objek anonim pada kelas Makanan
          Makanan.tampilkan(new Makanan(i), i) ;
-       }    
-      customer.pilih_menu() ;
-      Makanan Pesanan = new Makanan(customer.pilihan) ;
-      if (Pesanan.jadi)
+       }
+      
+       System.out.println() ;
+       
+       int pilihan_makanan = customer.pilih_menu() ;
+       
+       System.out.println() ;
+       
+       for (i=1 ; i<6 ; i++)
+       { //penggunaan method static tampilkan dengan referensi kelas Minuman dan objek anonim pada kelas Minuman
+         Makanan.tampilkan(new Minuman(i), i) ;
+       }
+      
+       int pilihan_minuman = customer.pilih_menu() ;
+       
+      Makanan Pesanan = new Makanan(pilihan_makanan) ;
+      Minuman pesanan = new Minuman(pilihan_minuman) ;
+      
+      System.out.println() ;
+      
+      if ((Pesanan.jadi) && (pesanan.jadi))
        {    
         if (customer.pembungkusan())
-          customer.transaksi(Pesanan.harga,Pesanan.bungkusnya) ;
+          customer.transaksi(Pesanan.harga+pesanan.harga,Pesanan.bungkusnya+pesanan.bungkusnya) ;
         else
-          customer.transaksi(Pesanan.harga) ; 
+          customer.transaksi(Pesanan.harga+pesanan.harga) ; 
        }  
       
        
@@ -44,4 +64,8 @@ public class Kelas_utama {
               
       
     }
+    
+    
+    
+    
 }

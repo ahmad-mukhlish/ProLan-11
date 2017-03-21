@@ -5,14 +5,17 @@ class Pembeli
 
     String nama ;
     double potongan, kembalian, total_bayar, pajak ;
-    int bangku, uang_masuk, pilihan  ; 
-    static final double DISCOUNT = 0.05, PPN = 0.1 ;
+    int bangku, uang_masuk ; 
+    static final double PPN = 0.1 ; 
+    double discount = 0.05 ; 
         
     
     //inisiasi Scanner
     Scanner input = new Scanner(System.in) ;
 
     //method - method pembeli
+    
+   
     
     //fungsi - fungsi pengisian data pembeli 
     public String getNama() 
@@ -48,9 +51,9 @@ class Pembeli
   
     
     //fungsi pemilihan menu dengan nilai balik char
-    public void pilih_menu() {
+    public int pilih_menu() {
         System.out.print("\nSilakan Masukan Pilihan Pembeli \t: ") ;
-        pilihan = input.nextInt() ;    
+        return input.nextInt() ;    
 
     }
    
@@ -67,7 +70,7 @@ class Pembeli
     public void hitungPotongan(int pembayaran)
     {
         if ((pembayaran) >= 18000)
-            potongan = DISCOUNT * pembayaran ;
+            potongan = discount * pembayaran ;
           
     }
     
