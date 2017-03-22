@@ -34,8 +34,8 @@ public class LatihanArray {
     
     public void lakukan()
     {
-     
-      System.out.print("\nSilakan Masukkan Nilai N : ") ;   
+      System.out.println("\nProgram Pencari Minimum & Maksimum\n") ;
+      System.out.print("Silakan Masukkan Nilai N : ") ;   
       N = inputan.nextInt() ;
       
       System.out.println() ;   
@@ -51,10 +51,10 @@ public class LatihanArray {
       
       if ((pil == 'A') || (pil == 'a'))
       {pilihanA() ;
-       System.out.println("Nilai Maksimum : "+max) ;} 
+       System.out.println("Nilai Minimum : "+min) ;} 
       else if ((pil == 'B') || (pil == 'b'))
       {pilihanB() ; 
-       System.out.println("Nilai Minimum : "+min) ;
+       System.out.println("Nilai Maksimum : "+max) ;
       }  
       
       System.out.println() ;  
@@ -78,6 +78,27 @@ public class LatihanArray {
     void pilihanA()
     {
       int i ;  
+      min = larik[0] ;
+      for (i=0;i<N;i++) 
+        {  
+           if (min > larik[i])
+             min = larik[i] ;
+        }
+      
+      //hitung kemunculannya
+      
+       for (i=0;i<N;i++) 
+        {  
+           if (min == larik[i] )
+             kemunculan++ ;
+        }
+      
+      
+    }      
+    
+    void pilihanB()
+    {
+      int i ;  
       max = larik[0] ;
       for (i=0;i<N;i++) 
         {  
@@ -95,28 +116,10 @@ public class LatihanArray {
       
     }        
    
-    void pilihanB()
-    {
-      int i ;  
-      min = larik[0] ;
-      for (i=0;i<N;i++) 
-        {  
-           if (min > larik[i])
-             min = larik[i] ;
-        }
-      
-      //hitung kemunculannya
-      
-       for (i=0;i<N;i++) 
-        {  
-           if (min == larik[i] )
-             kemunculan++ ;
-        }
-      
-      
-    }         
+       
     
        
    
     
 }
+
