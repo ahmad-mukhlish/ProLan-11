@@ -9,6 +9,7 @@ public class Minuman extends Makanan {
     @Override
    public void setProduk(int pilihan)
    {
+     boolean jadi = true ;   
      switch (pilihan) 
         {case 1 : {nama_produk = "Es kelapa muda" ; 
                                 harga = 7000 ;
@@ -35,10 +36,13 @@ public class Minuman extends Makanan {
                                 bungkusnya = 0 ;
                                 break ;}
          
-         default             :{System.out.println("Menu yang Anda pilih tidak tersedia...") ;
+         default             :{nama_produk = "Menu yang Anda pilih tidak tersedia..." ;
                                jadi = false ;
                                break ;}
-        }  
-   }        
+        }
+     
+      this.jadi = jadi ;
+   }       
+     
 }
 

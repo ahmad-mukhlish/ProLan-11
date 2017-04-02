@@ -2,7 +2,7 @@ public class Makanan {
 
     //variabel instance kelas makanan
     String nama_produk ;
-    int harga, bungkusnya, jenis ;
+    static int harga, bungkusnya, jenis ;
     boolean jadi ;
     int coba ;
   
@@ -12,22 +12,20 @@ public class Makanan {
      //konstruktor makanan dan penggunaan this pada konstruktor berupa variabel
     Makanan(int paket) 
     {
-        boolean jadi ;
-        jadi = true ;
-        
         setProduk(paket) ;
-        
-        
-        this.jadi = jadi ;
     }
     
-      public static void tampilkan(Makanan penampil, int kode)      
+      public static String tampilkan(Makanan penampil, int kode, boolean valid)      
     { 
-      System.out.println("Paket "+kode+"  : "+penampil.nama_produk+" "+penampil.harga) ;   
+      if (valid)  
+       return "Paket "+kode+"  : "+penampil.nama_produk+" "+penampil.harga ;   
+      else
+       return penampil.nama_produk ;   
     }
        
    public void setProduk(int pilihan)
    {
+     boolean jadi = true ;
      switch (pilihan) 
         {case 1 : {nama_produk = "Ayam goreng + nasi" ; 
                                 harga = 18000 ;
@@ -54,10 +52,13 @@ public class Makanan {
                                 bungkusnya = 800 ;
                                 break ;}
          
-         default             :{System.out.println("Menu yang Anda pilih tidak tersedia...") ;
+         default             :{nama_produk = "Menu yang Anda pilih tidak tersedia..." ;
                                jadi = false ;
                                break ;}
+        
         }  
+     
+      this.jadi = jadi ;
    }        
     
     
