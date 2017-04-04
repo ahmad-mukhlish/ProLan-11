@@ -1,41 +1,47 @@
 import java.util.Scanner ;
 class Pembeli
 {
-    //variabel global kelas pembeli
-
+    //attribut kelas pembeli
     String nama ;
-    double potongan, kembalian, total_bayar, pajak ;
-    int bangku, uang_masuk ; 
-    static final double PPN = 0.1 ; 
-    double discount = 0.05 ; 
-        
+    
+    //protected variabel
+    protected double potongan, kembalian, total_bayar, pajak ;
+    protected int bangku, uang_masuk ; 
+    
+    //konstanta dengan kata kunci final
+    private static final double PPN = 0.1 ; 
+    
+    //private variabel 
+    private double diskon_awal ; 
+    
+    //getter dan setter diskon_awal    
+    public double getDiskon_awal()
+    {
+        return diskon_awal ;
+    }
+    
+    public void setDiskon_awal(double diskon_awal) 
+    {
+        this.diskon_awal = diskon_awal ;
+    }         
     
     //inisiasi Scanner
     Scanner input = new Scanner(System.in) ;
 
-    //method - method pembeli
-    
-   
-    
-    //fungsi - fungsi pengisian data pembeli 
-    public String getNama() 
+    //penginput nama dan bangku pembeli
+    public String isiNama() 
     {
         System.out.print("Silakan Masukkan Nama Pembeli \t\t: ") ;
         return input.nextLine() ;
-        
-
     }
-    
-    public int getBangku()
+ 
+    public int isiBangku()
     {
       System.out.print("Silakan Masukkan Nomor Bangku Pembeli \t: ") ;
         return input.nextInt() ;  
     }        
     
-    //penggunaan keyword this pada method
-    
-    //prosedur - prosedur penyetel data pembeli
-    
+    //setter nama dan bangku pembeli
     public void setNama(String nama)
     {
       this.nama = nama ;  
@@ -47,16 +53,14 @@ class Pembeli
       this.bangku = bangku ;  
     }
     
-    //prosedur penampil menu yang tersedia
-  
-    
-    //fungsi pemilihan menu dengan nilai balik char
+    //fungsi pemilihan menu pembeli
     public int pilih_menu() {
         System.out.print("\nSilakan Masukan Pilihan Pembeli \t: ") ;
         return input.nextInt() ;    
 
     }
    
+    //fungsi pengecek pesanan dibawa pulang atau tidak
     public boolean pembungkusan()
     {   
         
@@ -66,14 +70,20 @@ class Pembeli
                 
     }        
     
-    
+    //penghitung potongan pembeli
     public void hitungPotongan(int pembayaran)
     {
         if ((pembayaran) >= 18000)
-            potongan = discount * pembayaran ;
+            potongan = diskon_awal * pembayaran ;
           
     }
     
+    //pengisi uang masuk 
+    public void isiUangMasuk()
+    {   
+        System.out.print("\nUang masuk pembeli \t\t\t: ") ;
+        uang_masuk = input.nextInt() ; 
+    }        
     
     //prosedur overload, yang ini tanpa parameter bungkus
     public void transaksi(int harga) 
@@ -88,8 +98,8 @@ class Pembeli
         System.out.printf("Pajak PPN (10 persen) \t\t\t: %.0f\n",pajak) ; 
         System.out.printf("Total Bayar \t\t\t\t: %.0f\n",total_bayar) ;
         
-        System.out.print("\nUang masuk pembeli \t\t\t: ") ;
-        uang_masuk  = input.nextInt() ; 
+        
+        isiUangMasuk() ;
         
         kembalian   = uang_masuk - total_bayar ;
         System.out.printf("Kembalian \t\t\t\t: %.0f\n",kembalian) ;
@@ -111,8 +121,7 @@ class Pembeli
         System.out.printf("Pajak PPN (10 persen) \t\t\t: %.0f\n",pajak) ; 
         System.out.printf("Total Bayar \t\t\t\t: %.0f\n",total_bayar) ;
         
-        System.out.print("\nUang masuk pembeli \t\t\t: ") ;
-        uang_masuk = input.nextInt() ;
+        isiUangMasuk() ;
         
         kembalian = uang_masuk - total_bayar ;
         System.out.printf("Kembalian \t\t\t\t: %.0f\n",kembalian) ;

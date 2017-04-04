@@ -1,24 +1,30 @@
 public class Makanan {
 
-    //variabel instance kelas makanan
-    String nama_produk ;
-    static int harga, bungkusnya, jenis ;
+    //attribut kelas makanan
+    String nama_produk, tampilan, keterangan_makanan ;
+    int harga, bungkusnya, jenis ;
     boolean jadi ;
-    int coba ;
+
   
     
    
 
-     //konstruktor makanan dan penggunaan this pada konstruktor berupa variabel
+     //konstruktor makanan
     Makanan(int paket) 
     {
         setProduk(paket) ;
+        //isi string keterangan makanan
+        keterangan_makanan = "makanan" ;
+        //isi string tampilan
+        tampilan = Makanan.tampilkan(this,keterangan_makanan,paket,this.jadi) ;
+        
+        
     }
     
-      public static String tampilkan(Makanan penampil, int kode, boolean valid)      
+      public static String tampilkan(Makanan penampil, String keterangan, int kode, boolean valid)      
     { 
       if (valid)  
-       return "Paket "+kode+"  : "+penampil.nama_produk+" "+penampil.harga ;   
+       return "Paket "+keterangan+" "+kode+"  : "+penampil.nama_produk+" "+penampil.harga ;   
       else
        return penampil.nama_produk ;   
     }

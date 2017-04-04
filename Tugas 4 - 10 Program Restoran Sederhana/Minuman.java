@@ -1,10 +1,21 @@
 public class Minuman extends Makanan {
  
+    //attribut khusus kelas minuman
+    String keterangan_minuman ;
+    
+    //override konstruktor
     Minuman(int paket)
-    {
+    {  
+        //panggil super
         super(paket) ;
+        //isi keterangan minuman
+        keterangan_minuman = "minuman" ;
+        //timpa tampilan dengan keterangan minuman
+        tampilan = Minuman.tampilkan(this,keterangan_minuman,paket,this.jadi) ;
         
     }       
+    
+    
     
     @Override
    public void setProduk(int pilihan)
