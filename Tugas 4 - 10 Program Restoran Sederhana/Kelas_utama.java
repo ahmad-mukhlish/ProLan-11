@@ -7,6 +7,8 @@ public class Kelas_utama {
     public static void main(String args[]) 
     { //deklarasi objek umum yang digunakan :
        Pembeli customer ;
+       //hubungan has - a dengan kelas pembeli
+       //penggunaan polimorfisme dengan objek referensi customer dari kelas pembeli
 
       
       //deklarasi date dan sdf-nya
@@ -24,7 +26,7 @@ public class Kelas_utama {
       System.out.println("Tanggal \t\t\t\t: "+penanggalan.format(tanggal)); 
       
       
-      //mementukan apakah customer adalah pembeli biasa atau pelanggan
+      //mementukan apakah customer adalah pembeli biasa atau pelanggan dengan konsep polimorfisme
       if(Langganan.cekLangganan())
        {Langganan langganan = new Langganan() ;
         customer = langganan ;}
@@ -90,7 +92,7 @@ public class Kelas_utama {
        }  
       
        
-      System.out.println("\nTerimakasih atas kedatangannya ^_^\n") ; 
+     customer.Banner() ;
       
           
               

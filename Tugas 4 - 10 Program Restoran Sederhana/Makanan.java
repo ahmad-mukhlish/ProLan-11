@@ -1,11 +1,12 @@
 public class Makanan {
 
     //attribut kelas makanan
-    String nama_produk, tampilan, keterangan_makanan ;
-    int harga, bungkusnya, jenis ;
-    boolean jadi ;
-
-  
+    protected String nama_produk, tampilan ;
+    protected int harga, bungkusnya, jenis ;
+    protected boolean jadi ;
+    
+    //konstanta string khusus kelas makanan
+    private final String keterangan_makanan = "makanan"  ;
     
    
 
@@ -13,8 +14,6 @@ public class Makanan {
     Makanan(int paket) 
     {
         setProduk(paket) ;
-        //isi string keterangan makanan
-        keterangan_makanan = "makanan" ;
         //isi string tampilan
         tampilan = Makanan.tampilkan(this,keterangan_makanan,paket,this.jadi) ;
         
@@ -29,7 +28,7 @@ public class Makanan {
        return penampil.nama_produk ;   
     }
        
-   public void setProduk(int pilihan)
+   protected void setProduk(int pilihan)
    {
      boolean jadi = true ;
      switch (pilihan) 
@@ -80,3 +79,7 @@ public class Makanan {
     
     
  
+
+    
+    
+    

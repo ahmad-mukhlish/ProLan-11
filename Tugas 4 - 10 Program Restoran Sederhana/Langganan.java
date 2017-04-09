@@ -3,11 +3,11 @@ import java.util.Scanner ;
 //kelas Langganan, subclass dari Pembeli
 public class Langganan extends Pembeli {
     
-       //attribut tambahan kelas langganan
-       double diskon_langganan ;
+      //attribut tambahan kelas langganan
+      private double diskon_langganan ;
 
-       //prosedur static pengecek langganan
-      static boolean cekLangganan()
+      //prosedur static pengecek langganan
+      public static boolean cekLangganan()
     {
         Scanner inputan = new Scanner(System.in) ; 
         System.out.print("Anda memiliki kartu langganan? [Y/T] \t: ") ;
@@ -19,7 +19,7 @@ public class Langganan extends Pembeli {
       
     //override method hitung potongan, bila member potongannya ditambah 20%
     @Override
-   public void hitungPotongan(int pembayaran)
+    public void hitungPotongan(int pembayaran)
     {  
          if ((pembayaran) >= 18000)
          {  //pemanggilan super
@@ -55,12 +55,19 @@ public class Langganan extends Pembeli {
     }
     
        @Override
-     public void isiUangMasuk()
+     protected void isiUangMasuk()
     {   
         System.out.print("\nUang masuk langganan \t\t\t: ") ;
         uang_masuk = input.nextInt() ; 
     }        
     
     
+         
+      @Override
+  protected void Banner()
+  {
+       System.out.println("\nTerimakasih atas kedatangannya langganan "+nama+" ^_^\n") ; 
+  }
+   
       
 }

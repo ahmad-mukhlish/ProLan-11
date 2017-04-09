@@ -2,7 +2,7 @@ import java.util.Scanner ;
 class Pembeli
 {
     //attribut kelas pembeli
-    String nama ;
+    protected String nama ;
     
     //protected variabel
     protected double potongan, kembalian, total_bayar, pajak ;
@@ -15,7 +15,7 @@ class Pembeli
     private double diskon_awal ; 
     
     //getter dan setter diskon_awal    
-    public double getDiskon_awal()
+    protected double getDiskon_awal()
     {
         return diskon_awal ;
     }
@@ -42,13 +42,13 @@ class Pembeli
     }        
     
     //setter nama dan bangku pembeli
-    public void setNama(String nama)
+    protected void setNama(String nama)
     {
       this.nama = nama ;  
     }
     
     
-    public void setBangku(int bangku)
+    protected void setBangku(int bangku)
     {
       this.bangku = bangku ;  
     }
@@ -71,15 +71,15 @@ class Pembeli
     }        
     
     //penghitung potongan pembeli
-    public void hitungPotongan(int pembayaran)
+    protected void hitungPotongan(int pembayaran)
     {
         if ((pembayaran) >= 18000)
-            potongan = diskon_awal * pembayaran ;
+            potongan = getDiskon_awal() * pembayaran ;
           
     }
     
     //pengisi uang masuk 
-    public void isiUangMasuk()
+    protected void isiUangMasuk()
     {   
         System.out.print("\nUang masuk pembeli \t\t\t: ") ;
         uang_masuk = input.nextInt() ; 
@@ -106,7 +106,7 @@ class Pembeli
     }
     
     //prosedur overload, yang ini dengan parameter bungkus
-     public void transaksi(int harga, int bungkus) 
+    public void transaksi(int harga, int bungkus) 
     {   
         
       
@@ -128,6 +128,10 @@ class Pembeli
         
     }
     
+  protected void Banner()
+  {
+       System.out.println("\nTerimakasih atas kedatangannya pembeli "+nama+" ^_^\n") ; 
+  }
    
 
 }
