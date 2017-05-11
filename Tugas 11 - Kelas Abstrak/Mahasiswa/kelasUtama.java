@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class kelasUtama {
+public class KelasUtama {
 
     public static void main(String[] args) {
 
