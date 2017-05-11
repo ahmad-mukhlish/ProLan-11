@@ -1,5 +1,6 @@
-//kelas minuman turunan kelas Makanan
-public class Minuman extends Makanan {
+
+//kelas Minuman turunan kelas abstract Produk
+public class Minuman extends Produk {
  
     //konstanta string khusus kelas minuman
     private final String keterangan_minuman = "minuman"  ;
@@ -17,7 +18,7 @@ public class Minuman extends Makanan {
     //override setProduk
     
     @Override
-   protected void setProduk(int pilihan)
+   public void setProduk(int pilihan)
    {
      boolean jadi = true ;   
      switch (pilihan) 
@@ -54,6 +55,7 @@ public class Minuman extends Makanan {
       this.jadi = jadi ;
    }       
      
+       
    
 }
 
