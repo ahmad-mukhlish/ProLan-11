@@ -3,15 +3,14 @@
  * @author GOODWARE1
  */
  
-//kelas minuman turunan kelas Makanan
 public class Minuman extends Produk {
 
     //konstanta string khusus kelas minuman
     private final String keterangan_minuman = "minuman";
 
-    //private attribut untuk encapsulation
+    //private attribut untuk Enkapsulasi
     private String nama_produk, tampilan;
-    private int harga, bungkusnya, jenis;
+    private int harga, bungkusnya, jumlah;
     private boolean jadi;
 
     //override constructor kelas abstract
@@ -84,7 +83,7 @@ public class Minuman extends Produk {
         this.jadi = jadi;
     }
 
-    //method - method getter 
+    //method - method getter dari hasil override
     @Override
     public String getTampilan() {
         return this.tampilan;
@@ -103,6 +102,17 @@ public class Minuman extends Produk {
     @Override
     public boolean isJadi() {
         return this.jadi;
+    }
+    
+    //getter dan setter atribut jumlah pada kelas Minuman
+    
+    @Override
+    public int getJumlah() {
+        return jumlah;
+    }
+
+    public void setJumlah(int jumlah) {
+        this.jumlah = jumlah;
     }
 
 }

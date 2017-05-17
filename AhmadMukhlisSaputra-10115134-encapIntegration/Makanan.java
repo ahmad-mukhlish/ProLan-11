@@ -8,15 +8,14 @@ public class Makanan extends Produk {
     //konstanta string khusus kelas makanan
     private final String keterangan_makanan = "makanan";
 
-    //private attribut untuk encapsulation
+    //private attribut untuk Enkapsulasi
     private String nama_produk, tampilan;
-    private int harga, bungkusnya, jenis;
+    private int harga, bungkusnya, jumlah;
     private boolean jadi;
 
     //override constructor kelas abstract
     Makanan(int paket) {
         super(paket);
-		//timpa tampilan dengan keterangan minuman
         tampilan = Makanan.tampilkan(this, keterangan_makanan, paket, this.jadi);
 
     }
@@ -103,6 +102,18 @@ public class Makanan extends Produk {
     @Override
     public boolean isJadi() {
         return this.jadi;
+    }
+    
+    //getter dan setter atribut jumlah pada kelas Makanan
+    
+    @Override
+    public int getJumlah() {
+        return jumlah;
+    }
+
+    @Override
+    public void setJumlah(int jumlah) {
+        this.jumlah = jumlah;
     }
 
 }

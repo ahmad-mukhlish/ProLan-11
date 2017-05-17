@@ -6,28 +6,47 @@
 
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Scanner;
 
 public class Kelas_utama {
-
+ 
+    
+    static int ongkos ;
+    
     public static void main(String args[]) {
         //deklarasi objek umum yang digunakan :
         Pembeli customer;
         //hubungan has - a dengan kelas pembeli
-        //penggunaan polymorphism dengan objek referensi customer dari kelas pembeli
+        //penggunaan polimorfisme dengan objek referensi customer dari kelas pembeli
 
         //deklarasi date dan sdf-nya
         Date tanggal = new Date();
         SimpleDateFormat penanggalan = new SimpleDateFormat("dd-MMM-yyyy");
 
         //deklarasi variabel lokal 
-        int i;
+        int i ;
+
+        //deklarasi scanner input
+        Scanner input = new Scanner(System.in);
 
         //header program
         System.out.println("\nProgram Restoran Sangat Sederhana");
         System.out.println("---------------------------------\n");
         System.out.println("Tanggal \t\t\t\t: " + penanggalan.format(tanggal));
 
-        //mementukan apakah customer adalah pembeli biasa atau pelanggan dengan konsep polymorphism
+        if (Delivery.cekDelivery()) {
+            Delivery delivery = new Delivery();
+            System.out.print("Alamat yang dituju        \t\t: ");
+            delivery.setTujuan(input.nextLine());
+            System.out.print("Jaraknya (dalam km)       \t\t: ");
+            delivery.setJarak(input.nextInt());
+            delivery.hitungOngkir();
+            ongkos = delivery.getOngkir() ;
+        }
+        
+        System.out.println("");
+
+        //mementukan apakah customer adalah pembeli biasa atau pelanggan dengan konsep polimorfisme
         if (Langganan.cekLangganan()) {
             customer = new Langganan();
         } else {
@@ -55,6 +74,8 @@ public class Kelas_utama {
         Produk makanan = new Makanan(pilihan_makanan);
         //output objek makanan yang dipilih
         System.out.println("Makanan yang Anda pilih adalah          : {" + makanan.getTampilan() + "}");
+        System.out.print("Jumlah paket makanan yang dibeli        : ");
+        makanan.setJumlah(input.nextInt());
 
         System.out.println();
 
@@ -69,6 +90,8 @@ public class Kelas_utama {
         Produk minuman = new Minuman(pilihan_minuman);
         //output minuman yang dipilih
         System.out.println("Minuman yang Anda pilih adalah          : {" + minuman.getTampilan() + "}");
+        System.out.print("Jumlah paket minuman yang dibeli        : ");
+        minuman.setJumlah(input.nextInt());
 
         System.out.println();
 
@@ -77,12 +100,15 @@ public class Kelas_utama {
             //cek apakah transaksi dibungkus atau tidak 
             if (customer.pembungkusan()) {
                 //hitung transaksi dengan konsep getter
-                customer.transaksi(makanan.getHarga() + minuman.getHarga(), makanan.getBungkusnya() + minuman.getBungkusnya());
+                customer.transaksi(makanan.getHarga() * makanan.getJumlah() + minuman.getHarga() * minuman.getJumlah(), makanan.getBungkusnya() * makanan.getJumlah() + minuman.getBungkusnya() * minuman.getJumlah());
             } else {
-                customer.transaksi(makanan.getHarga() + minuman.getHarga());
+                customer.transaksi(makanan.getHarga() * makanan.getJumlah() + minuman.getHarga() * minuman.getJumlah());
             }
         }
-
+        
+        if (Delivery.isJasa_delivery())
+         {System.out.println("Jasa ongkir \t\t\t\t: "+ongkos);}   
+             
         customer.Banner();
 
     }
