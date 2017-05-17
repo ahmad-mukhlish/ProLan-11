@@ -1,0 +1,7 @@
+Perbedaan antara enkapsulasi dan kelas abstract dalam konteks data hiding adalah :
+
+Enkapsulasi menyembunyikan attribut, dalam artian attribut bersifat private dan tidak diketahui (disembunyikan) dari kelas lain sehingga butuh getter dan setter 
+untuk transfer / pengaksesan data.
+
+Sedangkan kelas abstract menyembunyikan method, dalam artian behaviour suatu method disembunyikan dan hanya bisa diketahui melalui kode implementasi method pada kelas
+turunan yang meng-override method abstract pada kelas abstract tersebut. 
