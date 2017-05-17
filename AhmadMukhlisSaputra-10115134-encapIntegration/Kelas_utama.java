@@ -1,14 +1,19 @@
 
+/**
+ *
+ * @author GOODWARE1
+ */
 
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
 public class Kelas_utama {
 
-    public static void main(String args[]) { //deklarasi objek umum yang digunakan :
+    public static void main(String args[]) {
+        //deklarasi objek umum yang digunakan :
         Pembeli customer;
         //hubungan has - a dengan kelas pembeli
-        //penggunaan polimorfisme dengan objek referensi customer dari kelas pembeli
+        //penggunaan polymorphism dengan objek referensi customer dari kelas pembeli
 
         //deklarasi date dan sdf-nya
         Date tanggal = new Date();
@@ -22,19 +27,18 @@ public class Kelas_utama {
         System.out.println("---------------------------------\n");
         System.out.println("Tanggal \t\t\t\t: " + penanggalan.format(tanggal));
 
-        //mementukan apakah customer adalah pembeli biasa atau pelanggan dengan konsep polimorfisme
+        //mementukan apakah customer adalah pembeli biasa atau pelanggan dengan konsep polymorphism
         if (Langganan.cekLangganan()) {
-            Langganan langganan = new Langganan();
-            customer = langganan;
+            customer = new Langganan();
         } else {
             customer = new Pembeli();
         }
 
-        //isi Nama dan bangku customer
+        //isi Nama dan bangku customer dengan konsep setter
         customer.setNama(customer.isiNama());
         customer.setBangku(customer.isiBangku());
 
-        //set diskon customer
+        //set diskon customer dengan konsep setter
         customer.setDiskon_awal(0.05);
 
         System.out.println();
@@ -47,10 +51,10 @@ public class Kelas_utama {
 
         //pemilihan menu makanan
         int pilihan_makanan = customer.pilih_menu();
-        //instansi objek makanan
+        //instansi objek makanan dengan konsep polymorphism pada kelas abstract
         Produk makanan = new Makanan(pilihan_makanan);
         //output objek makanan yang dipilih
-        System.out.println("Makanan yang Anda pilih adalah          : {" + makanan.tampilan + "}");
+        System.out.println("Makanan yang Anda pilih adalah          : {" + makanan.getTampilan() + "}");
 
         System.out.println();
 
@@ -61,20 +65,21 @@ public class Kelas_utama {
 
         //pemilihan menu minuman
         int pilihan_minuman = customer.pilih_menu();
-        //instansi objek minuman
+        //instansi objek minuman dengan konsep polymorphism pada kelas abstract
         Produk minuman = new Minuman(pilihan_minuman);
         //output minuman yang dipilih
-        System.out.println("Minuman yang Anda pilih adalah          : {" + minuman.tampilan + "}");
+        System.out.println("Minuman yang Anda pilih adalah          : {" + minuman.getTampilan() + "}");
 
         System.out.println();
 
-        //cek validasi transaksi
-        if ((makanan.jadi) || (minuman.jadi)) {
-            //cek apakah transaksi dibungkus atau tidak   
+        //cek validasi transaksi dengan konsep getter boolean (isBoolean)
+        if ((makanan.isJadi()) || (minuman.isJadi())) {
+            //cek apakah transaksi dibungkus atau tidak 
             if (customer.pembungkusan()) {
-                customer.transaksi(makanan.harga + minuman.harga, makanan.bungkusnya + minuman.bungkusnya);
+                //hitung transaksi dengan konsep getter
+                customer.transaksi(makanan.getHarga() + minuman.getHarga(), makanan.getBungkusnya() + minuman.getBungkusnya());
             } else {
-                customer.transaksi(makanan.harga + minuman.harga);
+                customer.transaksi(makanan.getHarga() + minuman.getHarga());
             }
         }
 

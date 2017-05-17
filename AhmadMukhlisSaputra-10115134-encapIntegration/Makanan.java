@@ -1,18 +1,27 @@
-
-//kelas Makanan turunan kelas abstract Produk
+/**
+ *
+ * @author GOODWARE1
+ */
+ 
 public class Makanan extends Produk {
-
 
     //konstanta string khusus kelas makanan
     private final String keterangan_makanan = "makanan";
 
-    //konstruktor makanan
+    //private attribut untuk encapsulation
+    private String nama_produk, tampilan;
+    private int harga, bungkusnya, jenis;
+    private boolean jadi;
+
+    //override constructor kelas abstract
     Makanan(int paket) {
-        super(paket) ;
+        super(paket);
+		//timpa tampilan dengan keterangan minuman
         tampilan = Makanan.tampilkan(this, keterangan_makanan, paket, this.jadi);
 
     }
 
+    //static method Makanan
     public static String tampilkan(Makanan penampil, String keterangan, int kode, boolean valid) {
 
         if (valid) {
@@ -23,6 +32,7 @@ public class Makanan extends Produk {
 
     }
 
+    //method yang di-override dari kelas abstract
     @Override
     public void setProduk(int pilihan) {
         boolean jadi = true;
@@ -72,6 +82,27 @@ public class Makanan extends Produk {
 
         this.jadi = jadi;
 
+    }
+
+    //method - method getter 
+    @Override
+    public String getTampilan() {
+        return this.tampilan;
+    }
+
+    @Override
+    public int getBungkusnya() {
+        return this.bungkusnya;
+    }
+
+    @Override
+    public int getHarga() {
+        return this.harga;
+    }
+
+    @Override
+    public boolean isJadi() {
+        return this.jadi;
     }
 
 }
