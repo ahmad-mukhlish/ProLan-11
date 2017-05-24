@@ -1,0 +1,5 @@
+Tagging interface digunakan untuk :
+1. Memberikan tanda kepada java virtual machine supaya kelas yang mengimplemen tagging interface tersebut diberikan perlakuan khusus. 
+   Contoh : dengan mengimplemen serializable, jvm akan memberikan operasi - operasi tertentu bagi kelas tersebut.
+2. Memberikan keleluasaan bagi pemrogram untuk mengelompokan kelas - kelas yang dimiliki. Jadi, kelas - kelas yang mengimplemen suatu
+   tagging interface tertentu dapat dibedakan dari kelas lainnya.
