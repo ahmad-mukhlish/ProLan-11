@@ -3,7 +3,7 @@
  * @author GOODWARE1
  */
  
-public class Makanan extends Produk {
+public class Makanan extends Produk implements DataPekerja {
 
     //konstanta string khusus kelas makanan
     private final String keterangan_makanan = "makanan";
@@ -12,6 +12,9 @@ public class Makanan extends Produk {
     private String nama_produk, tampilan;
     private int harga, bungkusnya, jumlah;
     private boolean jadi;
+    private final String namaKoki = "Wikeu" ;
+
+    
 
     //override constructor kelas abstract
     Makanan(int paket) {
@@ -115,5 +118,22 @@ public class Makanan extends Produk {
     public void setJumlah(int jumlah) {
         this.jumlah = jumlah;
     }
+
+    @Override
+    public String getNamaKasir() {
+      return super.getNamaKasir() ;
+    }
+
+    @Override
+    public String getNamaPetugas() {
+     return super.getNamaPetugas() ;
+    }
+
+    @Override
+    public String getNamaKoki() {
+     return this.namaKoki ;   
+    }
+
+   
 
 }

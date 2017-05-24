@@ -3,16 +3,15 @@
  *
  * @author GOODWARE1
  */
-
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class Kelas_utama {
- 
-    
-    static int ongkos ;
-    
+
+    static int ongkos;
+    static String penugasan = "Waitress yang bertugas \t\t\t: ";
+
     public static void main(String args[]) {
         //deklarasi objek umum yang digunakan :
         Pembeli customer;
@@ -24,7 +23,7 @@ public class Kelas_utama {
         SimpleDateFormat penanggalan = new SimpleDateFormat("dd-MMM-yyyy");
 
         //deklarasi variabel lokal 
-        int i ;
+        int i;
 
         //deklarasi scanner input
         Scanner input = new Scanner(System.in);
@@ -34,16 +33,17 @@ public class Kelas_utama {
         System.out.println("---------------------------------\n");
         System.out.println("Tanggal \t\t\t\t: " + penanggalan.format(tanggal));
 
+        Delivery delivery = new Delivery();
         if (Delivery.cekDelivery()) {
-            Delivery delivery = new Delivery();
             System.out.print("Alamat yang dituju        \t\t: ");
             delivery.setTujuan(input.nextLine());
             System.out.print("Jaraknya (dalam km)       \t\t: ");
             delivery.setJarak(input.nextInt());
             delivery.hitungOngkir();
-            ongkos = delivery.getOngkir() ;
+            ongkos = delivery.getOngkir();
+            penugasan = "Driver yang bertugas \t\t\t: ";
         }
-        
+
         System.out.println("");
 
         //mementukan apakah customer adalah pembeli biasa atau pelanggan dengan konsep polimorfisme
@@ -55,7 +55,8 @@ public class Kelas_utama {
 
         //isi Nama dan bangku customer dengan konsep setter
         customer.setNama(customer.isiNama());
-        customer.setBangku(customer.isiBangku());
+        if (!Delivery.isJasa_delivery())
+            customer.setBangku(customer.isiBangku());
 
         //set diskon customer dengan konsep setter
         customer.setDiskon_awal(0.05);
@@ -74,6 +75,11 @@ public class Kelas_utama {
         Produk makanan = new Makanan(pilihan_makanan);
         //output objek makanan yang dipilih
         System.out.println("Makanan yang Anda pilih adalah          : {" + makanan.getTampilan() + "}");
+        if (Delivery.isJasa_delivery()) {
+            System.out.println("Koki yang bertugas \t\t\t: " + delivery.getNamaKoki());
+        } else {
+            System.out.println("Koki yang bertugas \t\t\t: " + makanan.getNamaKoki());
+        }
         System.out.print("Jumlah paket makanan yang dibeli        : ");
         makanan.setJumlah(input.nextInt());
 
@@ -90,6 +96,11 @@ public class Kelas_utama {
         Produk minuman = new Minuman(pilihan_minuman);
         //output minuman yang dipilih
         System.out.println("Minuman yang Anda pilih adalah          : {" + minuman.getTampilan() + "}");
+        if (Delivery.isJasa_delivery()) {
+            System.out.println("Koki yang bertugas \t\t\t: " + delivery.getNamaKoki());
+        } else {
+            System.out.println("Koki yang bertugas \t\t\t: " + minuman.getNamaKoki());
+        }
         System.out.print("Jumlah paket minuman yang dibeli        : ");
         minuman.setJumlah(input.nextInt());
 
@@ -105,10 +116,17 @@ public class Kelas_utama {
                 customer.transaksi(makanan.getHarga() * makanan.getJumlah() + minuman.getHarga() * minuman.getJumlah());
             }
         }
-        
-        if (Delivery.isJasa_delivery())
-         {System.out.println("Jasa ongkir \t\t\t\t: "+ongkos);}   
-             
+
+        if (Delivery.isJasa_delivery()) {
+            System.out.println("Jasa ongkir \t\t\t\t: " + ongkos);
+            System.out.println("\nNama Kasir yang bertugas \t\t: " + delivery.getNamaKasir());
+            System.out.println(penugasan + delivery.getNamaPetugas());
+        } else {
+            System.out.println("");
+            System.out.println("Nama Kasir yang bertugas \t\t: " + makanan.getNamaKasir());
+            System.out.println(penugasan + makanan.getNamaPetugas());
+        }
+
         customer.Banner();
 
     }

@@ -4,7 +4,7 @@
  */
 
 //kelas abstract
-public abstract class Produk {
+public abstract class Produk implements DataPekerja {
 
     //constructor kelas abstract
     Produk(int paket) {
@@ -22,4 +22,14 @@ public abstract class Produk {
     public abstract int getJumlah() ;
     public abstract void setJumlah(int jumlah) ;
 
+    @Override
+    public String getNamaKasir() {
+        return "Annisa" ;
+    }
+    
+    @Override
+    public String getNamaPetugas() {
+        return "Rosmi" ;
+    }
+    
 }
