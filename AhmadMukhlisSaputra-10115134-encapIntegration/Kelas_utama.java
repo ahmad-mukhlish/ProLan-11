@@ -7,6 +7,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
+
 public class Kelas_utama {
 
     static int ongkos;
@@ -55,8 +56,21 @@ public class Kelas_utama {
 
         //isi Nama dan bangku customer dengan konsep setter
         customer.setNama(customer.isiNama());
-        if (!Delivery.isJasa_delivery())
+        if (!Delivery.isJasa_delivery()) {
             customer.setBangku(customer.isiBangku());
+        }
+
+        System.out.print("\nApakah kode Struk bertipe data Integer? : ");
+        char pil = input.next().charAt(0);
+        if (pil == 'Y' || pil == 'y') {
+            GenerikQu<Integer> a = new GenerikQu();
+            System.out.print("Kode Struk (Integer) \t\t\t: ");
+            a.setKodeStruk(input.nextInt());
+        } else {
+            GenerikQu<String> b = new GenerikQu();
+            System.out.print("Kode Struk (String) \t\t\t: ");
+            b.setKodeStruk(input.nextLine());
+        }
 
         //set diskon customer dengan konsep setter
         customer.setDiskon_awal(0.05);
