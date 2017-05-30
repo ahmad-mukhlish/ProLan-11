@@ -63,13 +63,13 @@ public class Kelas_utama {
         System.out.print("\nApakah kode Struk bertipe data Integer? : ");
         char pil = input.next().charAt(0);
         if (pil == 'Y' || pil == 'y') {
-            GenerikQu<Integer> a = new GenerikQu();
+            GenerikQu<Integer> a = new GenerikQu<>();
             System.out.print("Kode Struk (Integer) \t\t\t: ");
             a.setKodeStruk(input.nextInt());
         } else {
-            GenerikQu<String> b = new GenerikQu();
+            GenerikQu<String> b = new GenerikQu<>();
             System.out.print("Kode Struk (String) \t\t\t: ");
-            b.setKodeStruk(input.nextLine());
+            b.setKodeStruk(input.next());
         }
 
         //set diskon customer dengan konsep setter
