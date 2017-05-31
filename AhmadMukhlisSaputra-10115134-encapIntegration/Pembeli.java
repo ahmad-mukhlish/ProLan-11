@@ -22,13 +22,17 @@ class Pembeli {
     //private variabel 
     private double diskon_awal;
 
-    //getter dan setter diskon_awal    
+    //getter dan setter    
     protected double getDiskon_awal() {
         return diskon_awal;
     }
 
     public void setDiskon_awal(double diskon_awal) {
         this.diskon_awal = diskon_awal;
+    }
+    
+    public double getTotal_bayar() {
+        return total_bayar;
     }
 
     //inisiasi Scanner

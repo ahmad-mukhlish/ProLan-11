@@ -1,8 +1,9 @@
+
 /**
  *
  * @author GOODWARE1
  */
- 
+
 public class Makanan extends Produk implements DataPekerja {
 
     //konstanta string khusus kelas makanan
@@ -12,9 +13,7 @@ public class Makanan extends Produk implements DataPekerja {
     private String nama_produk, tampilan;
     private int harga, bungkusnya, jumlah;
     private boolean jadi;
-    private final String namaKoki = "Wikeu" ;
-
-    
+    private final String namaKoki = "Wikeu";
 
     //override constructor kelas abstract
     Makanan(int paket) {
@@ -106,9 +105,8 @@ public class Makanan extends Produk implements DataPekerja {
     public boolean isJadi() {
         return this.jadi;
     }
-    
+
     //getter dan setter atribut jumlah pada kelas Makanan
-    
     @Override
     public int getJumlah() {
         return jumlah;
@@ -119,21 +117,21 @@ public class Makanan extends Produk implements DataPekerja {
         this.jumlah = jumlah;
     }
 
+    //implementasi interface DataPekerja
+    
     @Override
     public String getNamaKasir() {
-      return super.getNamaKasir() ;
+        return super.getNamaKasir();
     }
 
     @Override
     public String getNamaPetugas() {
-     return super.getNamaPetugas() ;
+        return super.getNamaPetugas();
     }
 
     @Override
     public String getNamaKoki() {
-     return this.namaKoki ;   
+        return this.namaKoki;
     }
-
-   
 
 }

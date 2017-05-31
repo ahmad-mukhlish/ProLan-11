@@ -112,10 +112,13 @@ public class Minuman extends Produk implements DataPekerja{
         return jumlah;
     }
 
+    @Override
     public void setJumlah(int jumlah) {
         this.jumlah = jumlah;
     }
 
+    //implementasi interface DataPekerja
+    
     @Override
     public String getNamaPetugas() {
         return super.getNamaPetugas(); 

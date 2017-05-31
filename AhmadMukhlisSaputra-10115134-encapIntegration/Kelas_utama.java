@@ -7,11 +7,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
-
 public class Kelas_utama {
-
-    static int ongkos;
-    static String penugasan = "Waitress yang bertugas \t\t\t: ";
 
     public static void main(String args[]) {
         //deklarasi objek umum yang digunakan :
@@ -35,16 +31,8 @@ public class Kelas_utama {
         System.out.println("Tanggal \t\t\t\t: " + penanggalan.format(tanggal));
 
         Delivery delivery = new Delivery();
-        if (Delivery.cekDelivery()) {
-            System.out.print("Alamat yang dituju        \t\t: ");
-            delivery.setTujuan(input.nextLine());
-            System.out.print("Jaraknya (dalam km)       \t\t: ");
-            delivery.setJarak(input.nextInt());
-            delivery.hitungOngkir();
-            ongkos = delivery.getOngkir();
-            penugasan = "Driver yang bertugas \t\t\t: ";
-        }
-
+        delivery.detail(Delivery.cekDelivery());
+        
         System.out.println("");
 
         //mementukan apakah customer adalah pembeli biasa atau pelanggan dengan konsep polimorfisme
@@ -120,25 +108,29 @@ public class Kelas_utama {
 
         System.out.println();
 
-        //cek validasi transaksi dengan konsep getter boolean (isBoolean)
+       //cek validasi transaksi dengan konsep getter boolean (isBoolean)
         if ((makanan.isJadi()) || (minuman.isJadi())) {
-            //cek apakah transaksi dibungkus atau tidak 
-            if (customer.pembungkusan()) {
-                //hitung transaksi dengan konsep getter
+            //bila pembeli delivery, pasti dibungkus
+            if (Delivery.isJasa_delivery()) {
                 customer.transaksi(makanan.getHarga() * makanan.getJumlah() + minuman.getHarga() * minuman.getJumlah(), makanan.getBungkusnya() * makanan.getJumlah() + minuman.getBungkusnya() * minuman.getJumlah());
-            } else {
-                customer.transaksi(makanan.getHarga() * makanan.getJumlah() + minuman.getHarga() * minuman.getJumlah());
+            } else {    //cek apakah transaksi dibungkus atau tidak bila customer makan di tempat
+                if (customer.pembungkusan()) {
+                    //hitung transaksi dengan konsep getter beserta bungkusnya
+                    customer.transaksi(makanan.getHarga() * makanan.getJumlah() + minuman.getHarga() * minuman.getJumlah(), makanan.getBungkusnya() * makanan.getJumlah() + minuman.getBungkusnya() * minuman.getJumlah());
+                } else {
+                    customer.transaksi(makanan.getHarga() * makanan.getJumlah() + minuman.getHarga() * minuman.getJumlah());
+                }
             }
         }
 
         if (Delivery.isJasa_delivery()) {
-            System.out.println("Jasa ongkir \t\t\t\t: " + ongkos);
+            System.out.println("Jasa ongkir \t\t\t\t: " + delivery.getOngkir());
             System.out.println("\nNama Kasir yang bertugas \t\t: " + delivery.getNamaKasir());
-            System.out.println(penugasan + delivery.getNamaPetugas());
+            System.out.println(delivery.getPenugasan() + delivery.getNamaPetugas());
         } else {
             System.out.println("");
             System.out.println("Nama Kasir yang bertugas \t\t: " + makanan.getNamaKasir());
-            System.out.println(penugasan + makanan.getNamaPetugas());
+            System.out.println(delivery.getPenugasan() + makanan.getNamaPetugas());
         }
 
         customer.Banner();

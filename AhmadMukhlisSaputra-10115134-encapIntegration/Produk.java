@@ -3,6 +3,7 @@
  * @author GOODWARE1
  */
 
+
 //kelas abstract
 public abstract class Produk implements DataPekerja {
 
@@ -21,7 +22,11 @@ public abstract class Produk implements DataPekerja {
     public abstract int getBungkusnya();
     public abstract int getJumlah() ;
     public abstract void setJumlah(int jumlah) ;
-
+    
+    /* implementasi interface DataPekerja pada kelas Abstrak untuk makan di tempat  
+       yang akan diimplementasi oleh kelas turunan Produk (Makanan dan Minuman) 
+    */
+    
     @Override
     public String getNamaKasir() {
         return "Annisa" ;
@@ -31,5 +36,7 @@ public abstract class Produk implements DataPekerja {
     public String getNamaPetugas() {
         return "Rosmi" ;
     }
+    
+  
     
 }
