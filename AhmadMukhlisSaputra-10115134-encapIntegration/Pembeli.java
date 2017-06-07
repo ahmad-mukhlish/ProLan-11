@@ -1,11 +1,10 @@
 
-
 /**
  *
  * @author GOODWARE1
  */
- 
 import java.util.Scanner;
+
 class Pembeli {
 
     //attribut private kelas pembeli untuk proses encapsulation
@@ -30,7 +29,7 @@ class Pembeli {
     public void setDiskon_awal(double diskon_awal) {
         this.diskon_awal = diskon_awal;
     }
-    
+
     public double getTotal_bayar() {
         return total_bayar;
     }
@@ -61,8 +60,25 @@ class Pembeli {
     //fungsi pemilihan menu pembeli
     public int pilih_menu() {
         System.out.print("\nSilakan Masukan Pilihan Pembeli \t: ");
-        return input.nextInt();
+        return ambil_menu(input.next());
 
+    }
+
+    //method generik
+    private <type> int ambil_menu(type menunya) {
+        int temp = 0; 
+        if ((menunya.equals(1)) || (menunya.equals("satu"))) 
+            temp = 1;
+         else if ((menunya.equals(2)) || (menunya.equals("dua"))) 
+            temp = 2;
+         else if ((menunya.equals(3)) || (menunya.equals("tiga"))) 
+            temp = 3;
+         else if ((menunya.equals(4)) || (menunya.equals("empat"))) 
+            temp = 4;
+         else if ((menunya.equals(5)) || (menunya.equals("lima")))
+            temp = 5 ;
+        
+        return temp ;
     }
 
     //fungsi pengecek pesanan dibawa pulang atau tidak
