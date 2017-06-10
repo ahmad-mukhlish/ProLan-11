@@ -26,4 +26,6 @@ public class GenerikQu<T> {
         System.out.println(kodeStruk);
     }
     
+    
+    
 }

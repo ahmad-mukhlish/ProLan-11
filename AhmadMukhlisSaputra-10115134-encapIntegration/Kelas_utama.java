@@ -32,7 +32,7 @@ public class Kelas_utama {
 
         Delivery delivery = new Delivery();
         delivery.detail(Delivery.cekDelivery());
-        
+
         System.out.println("");
 
         //mementukan apakah customer adalah pembeli biasa atau pelanggan dengan konsep polimorfisme
@@ -108,7 +108,7 @@ public class Kelas_utama {
 
         System.out.println();
 
-       //cek validasi transaksi dengan konsep getter boolean (isBoolean)
+        //cek validasi transaksi dengan konsep getter boolean (isBoolean)
         if ((makanan.isJadi()) || (minuman.isJadi())) {
             //bila pembeli delivery, pasti dibungkus
             if (Delivery.isJasa_delivery()) {

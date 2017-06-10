@@ -45,7 +45,31 @@ class Pembeli {
 
     public int isiBangku() {
         System.out.print("Silakan Masukkan Nomor Bangku Pembeli \t: ");
-        return input.nextInt();
+
+        int checker = ambil_bangku(input.next());
+
+        while (checker == 0) {
+            System.out.println("\nNomor bangku tidak valid");
+            System.out.print("Silakan Masukkan Nomor Bangku Pembeli \t: ");
+            checker = ambil_bangku(input.next());
+        }
+
+        return checker;
+    }
+
+    //method generik
+    private <type> int ambil_bangku(type bangkunya) {
+        Integer temp = 0 ;
+        try {
+             temp = Integer.parseInt(bangkunya.toString());
+        } catch (NumberFormatException e) {
+          temp = 0 ;  
+        }
+        if ((temp < 0) || (temp > 550)) {
+            return 0;
+        } else {
+            return temp;
+        }
     }
 
     //setter nama dan bangku pembeli
@@ -66,19 +90,20 @@ class Pembeli {
 
     //method generik
     private <type> int ambil_menu(type menunya) {
-        int temp = 0; 
-        if ((menunya.equals(1)) || (menunya.equals("satu"))) 
+        int temp = 0;
+        if ((menunya.equals(1)) || (menunya.equals("satu"))) {
             temp = 1;
-         else if ((menunya.equals(2)) || (menunya.equals("dua"))) 
+        } else if ((menunya.equals(2)) || (menunya.equals("dua"))) {
             temp = 2;
-         else if ((menunya.equals(3)) || (menunya.equals("tiga"))) 
+        } else if ((menunya.equals(3)) || (menunya.equals("tiga"))) {
             temp = 3;
-         else if ((menunya.equals(4)) || (menunya.equals("empat"))) 
+        } else if ((menunya.equals(4)) || (menunya.equals("empat"))) {
             temp = 4;
-         else if ((menunya.equals(5)) || (menunya.equals("lima")))
-            temp = 5 ;
-        
-        return temp ;
+        } else if ((menunya.equals(5)) || (menunya.equals("lima"))) {
+            temp = 5;
+        }
+
+        return temp;
     }
 
     //fungsi pengecek pesanan dibawa pulang atau tidak
