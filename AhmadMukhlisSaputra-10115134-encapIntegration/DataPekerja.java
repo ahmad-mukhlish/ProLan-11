@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 
-
 public interface DataPekerja {
-    
-   public String getNamaKasir() ;
-   public String getNamaKoki() ;
-   public String getNamaPetugas() ;
-    
+
+    public String getNamaKasir();
+
+    public String getNamaKoki();
+
+    public String getNamaPetugas();
+
 }

@@ -1,18 +1,23 @@
+
 /**
  *
  * @author GOODWARE1
  */
- 
-public class Minuman extends Produk implements DataPekerja{
+public class Minuman extends Produk implements DataPekerja {
 
     //konstanta string khusus kelas minuman
-    private final String keterangan_minuman = "minuman";
+    public static final String keterangan_minuman = "minuman";
 
     //private attribut untuk Enkapsulasi
     private String nama_produk, tampilan;
+
     private int harga, bungkusnya, jumlah;
     private boolean jadi;
-    private final String namaKoki = "Nurhanifah" ;
+    private final String namaKoki = "Nurhanifah";
+
+    private static final int max = 5;
+
+    public static Minuman[] larikMinuman = new Minuman[max];
 
     //override constructor kelas abstract
     Minuman(int paket) {
@@ -32,6 +37,13 @@ public class Minuman extends Produk implements DataPekerja{
             return penampil.nama_produk;
         }
 
+    }
+
+    public static void inisiasi_array() {
+        int i;
+        for (i = 0; i < max; i++) {
+            larikMinuman[i] = new Minuman(i + 1);
+        }
     }
 
     //method yang di-override dari kelas abstract 
@@ -104,9 +116,8 @@ public class Minuman extends Produk implements DataPekerja{
     public boolean isJadi() {
         return this.jadi;
     }
-    
+
     //getter dan setter atribut jumlah pada kelas Minuman
-    
     @Override
     public int getJumlah() {
         return jumlah;
@@ -118,20 +129,24 @@ public class Minuman extends Produk implements DataPekerja{
     }
 
     //implementasi interface DataPekerja
-    
     @Override
     public String getNamaPetugas() {
-        return super.getNamaPetugas(); 
+        return super.getNamaPetugas();
     }
 
     @Override
     public String getNamaKasir() {
-        return super.getNamaKasir(); 
+        return super.getNamaKasir();
     }
 
     @Override
     public String getNamaKoki() {
-       return this.namaKoki ; 
+        return this.namaKoki;
+    }
+
+    @Override
+    public String getNama_produk() {
+        return nama_produk;
     }
 
 }

@@ -49,7 +49,7 @@ public class Delivery implements DataPekerja {
             System.out.print("Alamat yang dituju        \t\t: ");
             tujuan = input.nextLine();
             System.out.print("Jaraknya (dalam km)       \t\t: ");
-            jarak = input.nextInt();
+            jarak = GenMethods.checker_int(GenMethods.ambil_int(input.next(), 1, 25), "Jarak delivery", 1, 25);
             ongkir = hitungOngkir();
             penugasan = "Driver yang bertugas \t\t\t: ";
         } else {

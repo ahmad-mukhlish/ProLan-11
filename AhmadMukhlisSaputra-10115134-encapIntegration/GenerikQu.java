@@ -4,15 +4,14 @@
  * and open the template in the editor.
  */
 
-
 /**
  *
  * @author GOODWARE1
  * @param <T>
  */
 public class GenerikQu<T> {
-    
-    private T kodeStruk ;
+
+    private T kodeStruk;
 
     public T getKodeStruk() {
         return kodeStruk;
@@ -21,11 +20,9 @@ public class GenerikQu<T> {
     public void setKodeStruk(T kodeStruk) {
         this.kodeStruk = kodeStruk;
     }
-    
+
     public void printKodeStruk() {
         System.out.println(kodeStruk);
     }
-    
-    
-    
+
 }

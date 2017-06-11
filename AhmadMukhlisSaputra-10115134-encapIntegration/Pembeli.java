@@ -13,7 +13,7 @@ class Pembeli {
 
     //protected variabel untuk proses inheritance
     protected double potongan, kembalian, total_bayar, pajak;
-    protected int uang_masuk;
+    protected long uang_masuk;
 
     //konstanta dengan kata kunci final
     private static final double PPN = 0.1;
@@ -43,33 +43,9 @@ class Pembeli {
         return input.nextLine();
     }
 
-    public int isiBangku() {
+    public int isiBangkuValid() {
         System.out.print("Silakan Masukkan Nomor Bangku Pembeli \t: ");
-
-        int checker = ambil_bangku(input.next());
-
-        while (checker == 0) {
-            System.out.println("\nNomor bangku tidak valid");
-            System.out.print("Silakan Masukkan Nomor Bangku Pembeli \t: ");
-            checker = ambil_bangku(input.next());
-        }
-
-        return checker;
-    }
-
-    //method generik
-    private <type> int ambil_bangku(type bangkunya) {
-        Integer temp = 0 ;
-        try {
-             temp = Integer.parseInt(bangkunya.toString());
-        } catch (NumberFormatException e) {
-          temp = 0 ;  
-        }
-        if ((temp < 0) || (temp > 550)) {
-            return 0;
-        } else {
-            return temp;
-        }
+        return GenMethods.checker_int(GenMethods.ambil_int(input.next(), 0, 550), "Nomor Bangku Pembeli", 0, 550);
     }
 
     //setter nama dan bangku pembeli
@@ -88,8 +64,8 @@ class Pembeli {
 
     }
 
-    //method generik
-    private <type> int ambil_menu(type menunya) {
+    //method generik khusus kelas pembeli dan turunannya
+    protected <type> int ambil_menu(type menunya) {
         int temp = 0;
         if ((menunya.equals(1)) || (menunya.equals("satu"))) {
             temp = 1;
@@ -101,6 +77,8 @@ class Pembeli {
             temp = 4;
         } else if ((menunya.equals(5)) || (menunya.equals("lima"))) {
             temp = 5;
+        } else {
+            temp = GenMethods.checker_int(GenMethods.ambil_int(menunya, 1, 5), "Pilihan Menu", 1, 5);
         }
 
         return temp;
@@ -126,7 +104,7 @@ class Pembeli {
     //pengisi uang masuk 
     protected void isiUangMasuk() {
         System.out.print("\nUang masuk pembeli \t\t\t: ");
-        uang_masuk = input.nextInt();
+        uang_masuk = GenMethods.checker_long(GenMethods.ambil_long(input.next(), 0, 10000000), "Uang Masuk", 0, 10000000);
     }
 
     //prosedur overload, yang ini tanpa parameter bungkus

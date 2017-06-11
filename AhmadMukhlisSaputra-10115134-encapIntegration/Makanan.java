@@ -3,17 +3,20 @@
  *
  * @author GOODWARE1
  */
-
 public class Makanan extends Produk implements DataPekerja {
 
     //konstanta string khusus kelas makanan
-    private final String keterangan_makanan = "makanan";
+    public static final String keterangan_makanan = "makanan";
 
     //private attribut untuk Enkapsulasi
     private String nama_produk, tampilan;
+
     private int harga, bungkusnya, jumlah;
     private boolean jadi;
     private final String namaKoki = "Wikeu";
+    public static final int max = 5;
+
+    public static Makanan[] larikMakanan = new Makanan[max];
 
     //override constructor kelas abstract
     Makanan(int paket) {
@@ -31,6 +34,13 @@ public class Makanan extends Produk implements DataPekerja {
             return penampil.nama_produk;
         }
 
+    }
+
+    public static void inisiasi_array() {
+        int i;
+        for (i = 0; i < max; i++) {
+            larikMakanan[i] = new Makanan(i + 1);
+        }
     }
 
     //method yang di-override dari kelas abstract
@@ -118,7 +128,6 @@ public class Makanan extends Produk implements DataPekerja {
     }
 
     //implementasi interface DataPekerja
-    
     @Override
     public String getNamaKasir() {
         return super.getNamaKasir();
@@ -134,4 +143,8 @@ public class Makanan extends Produk implements DataPekerja {
         return this.namaKoki;
     }
 
+    @Override
+    public String getNama_produk() {
+        return nama_produk;
+    }
 }

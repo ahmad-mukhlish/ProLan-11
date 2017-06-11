@@ -15,6 +15,10 @@ public class Kelas_utama {
         //hubungan has - a dengan kelas pembeli
         //penggunaan polimorfisme dengan objek referensi customer dari kelas pembeli
 
+        //inisiasi larik makanan dan minuman
+        Makanan.inisiasi_array();
+        Minuman.inisiasi_array();
+
         //deklarasi date dan sdf-nya
         Date tanggal = new Date();
         SimpleDateFormat penanggalan = new SimpleDateFormat("dd-MMM-yyyy");
@@ -45,15 +49,15 @@ public class Kelas_utama {
         //isi Nama dan bangku customer dengan konsep setter
         customer.setNama(customer.isiNama());
         if (!Delivery.isJasa_delivery()) {
-            customer.setBangku(customer.isiBangku());
+            customer.setBangku(customer.isiBangkuValid());
         }
 
         System.out.print("\nApakah kode Struk bertipe data Integer? : ");
         char pil = input.next().charAt(0);
         if (pil == 'Y' || pil == 'y') {
-            GenerikQu<Integer> a = new GenerikQu<>();
+            GenerikQu<Long> a = new GenerikQu<>();
             System.out.print("Kode Struk (Integer) \t\t\t: ");
-            a.setKodeStruk(input.nextInt());
+            a.setKodeStruk(GenMethods.checker_long(GenMethods.ambil_long(input.next(), 0, 10000000), "Nilai kode", 0, 10000000));
         } else {
             GenerikQu<String> b = new GenerikQu<>();
             System.out.print("Kode Struk (String) \t\t\t: ");
@@ -66,10 +70,8 @@ public class Kelas_utama {
         System.out.println();
 
         //tampilkan menu makanan
-        for (i = 1; i < 6; i++) { //penggunaan method static tampilkan dengan referensi kelas Makanan dan objek anonim pada kelas Makanan
-            System.out.println(Makanan.tampilkan(new Makanan(i), "makanan", i, true));
-
-        }
+        GenMethods<Makanan> genMakanan = new GenMethods<>();
+        genMakanan.DaftarMenuProduk(Makanan.larikMakanan);
 
         //pemilihan menu makanan
         int pilihan_makanan = customer.pilih_menu();
@@ -83,14 +85,13 @@ public class Kelas_utama {
             System.out.println("Koki yang bertugas \t\t\t: " + makanan.getNamaKoki());
         }
         System.out.print("Jumlah paket makanan yang dibeli        : ");
-        makanan.setJumlah(input.nextInt());
+        makanan.setJumlah(GenMethods.checker_int(GenMethods.ambil_int(input.next(), 0, 999), "Jumlah paket Makanan", 0, 999));
 
         System.out.println();
 
         //tampilkan menu minuman
-        for (i = 1; i < 6; i++) { //penggunaan method static tampilkan dengan referensi kelas Minuman dan objek anonim pada kelas Minuman
-            System.out.println(Minuman.tampilkan(new Minuman(i), "minuman", i, true));
-        }
+        GenMethods<Minuman> genMinuman = new GenMethods<>();
+        genMinuman.DaftarMenuProduk(Minuman.larikMinuman);
 
         //pemilihan menu minuman
         int pilihan_minuman = customer.pilih_menu();
@@ -104,7 +105,7 @@ public class Kelas_utama {
             System.out.println("Koki yang bertugas \t\t\t: " + minuman.getNamaKoki());
         }
         System.out.print("Jumlah paket minuman yang dibeli        : ");
-        minuman.setJumlah(input.nextInt());
+        minuman.setJumlah(GenMethods.checker_int(GenMethods.ambil_int(input.next(), 0, 999), "Jumlah paket Minuman", 0, 999));
 
         System.out.println();
 

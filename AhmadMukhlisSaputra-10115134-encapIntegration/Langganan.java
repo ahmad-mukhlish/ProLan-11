@@ -3,7 +3,6 @@
  *
  * @author GOODWARE1
  */
- 
 import java.util.Scanner;
 
 //kelas Langganan, subclass dari Pembeli
@@ -43,22 +42,22 @@ public class Langganan extends Pembeli {
     }
 
     @Override
-    public int isiBangku() {
+    public int isiBangkuValid() {
         System.out.print("Silakan Masukkan Nomor Bangku Langganan : ");
-        return input.nextInt();
+        return GenMethods.checker_int(GenMethods.ambil_int(input.next(), 0, 550), "Nomor Bangku Langganan", 0, 550);
     }
 
     @Override
     public int pilih_menu() {
         System.out.print("\nSilakan Masukan Pilihan Langganan \t: ");
-        return input.nextInt();
+        return super.ambil_menu(input.next());
 
     }
 
     @Override
     protected void isiUangMasuk() {
         System.out.print("\nUang masuk langganan \t\t\t: ");
-        uang_masuk = input.nextInt();
+        uang_masuk = GenMethods.checker_long(GenMethods.ambil_long(input.next(), 0, 10000000), "Uang Masuk", 0, 10000000);
     }
 
     @Override
