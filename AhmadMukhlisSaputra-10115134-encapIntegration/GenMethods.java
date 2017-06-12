@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class GenMethods<T> {
 
     //method generic dengan parameter objek bertipe T    
-    public <T> void DaftarMenuProduk(T[] larikInputan) {
+    public static <T> void DaftarMenuProduk(T[] larikInputan) {
 
         int i = 0;
         String keterangan = "";

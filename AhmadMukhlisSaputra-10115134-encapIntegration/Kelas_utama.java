@@ -20,8 +20,9 @@ public class Kelas_utama {
         Minuman.inisiasi_array();
 
         //deklarasi date dan sdf-nya
-        Date tanggal = new Date();
+        Date sekarang = new Date();
         SimpleDateFormat penanggalan = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat JamSekarang = new SimpleDateFormat("HH:mm:ss");
 
         //deklarasi variabel lokal 
         int i;
@@ -32,7 +33,7 @@ public class Kelas_utama {
         //header program
         System.out.println("\nProgram Restoran Sangat Sederhana");
         System.out.println("---------------------------------\n");
-        System.out.println("Tanggal \t\t\t\t: " + penanggalan.format(tanggal));
+        System.out.println("Tanggal \t\t\t\t: " + penanggalan.format(sekarang));
 
         Delivery delivery = new Delivery();
         delivery.detail(Delivery.cekDelivery());
@@ -55,13 +56,15 @@ public class Kelas_utama {
         System.out.print("\nApakah kode Struk bertipe data Integer? : ");
         char pil = input.next().charAt(0);
         if (pil == 'Y' || pil == 'y') {
-            GenerikQu<Long> a = new GenerikQu<>();
+            GenerikQu<Long, String> a = new GenerikQu<>();
             System.out.print("Kode Struk (Integer) \t\t\t: ");
-            a.setKodeStruk(GenMethods.checker_long(GenMethods.ambil_long(input.next(), 0, 10000000), "Nilai kode", 0, 10000000));
+            a.setKodeStrukDanWaktuStruk(GenMethods.checker_long(GenMethods.ambil_long(input.next(), 0, 10000000), "Nilai kode", 0, 10000000), JamSekarang.format(sekarang));
+            a.printKodeStrukdanWaktuStruk();
         } else {
-            GenerikQu<String> b = new GenerikQu<>();
+            GenerikQu<String, String> b = new GenerikQu<>();
             System.out.print("Kode Struk (String) \t\t\t: ");
-            b.setKodeStruk(input.next());
+            b.setKodeStrukDanWaktuStruk(input.next(), JamSekarang.format(sekarang));
+            b.printKodeStrukdanWaktuStruk();
         }
 
         //set diskon customer dengan konsep setter
@@ -70,8 +73,7 @@ public class Kelas_utama {
         System.out.println();
 
         //tampilkan menu makanan
-        GenMethods<Makanan> genMakanan = new GenMethods<>();
-        genMakanan.DaftarMenuProduk(Makanan.larikMakanan);
+        GenMethods.<Makanan>DaftarMenuProduk(Makanan.larikMakanan);
 
         //pemilihan menu makanan
         int pilihan_makanan = customer.pilih_menu();
@@ -90,8 +92,7 @@ public class Kelas_utama {
         System.out.println();
 
         //tampilkan menu minuman
-        GenMethods<Minuman> genMinuman = new GenMethods<>();
-        genMinuman.DaftarMenuProduk(Minuman.larikMinuman);
+        GenMethods.<Minuman>DaftarMenuProduk(Minuman.larikMinuman);
 
         //pemilihan menu minuman
         int pilihan_minuman = customer.pilih_menu();
