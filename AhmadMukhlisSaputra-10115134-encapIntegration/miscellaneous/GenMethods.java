@@ -14,9 +14,7 @@ package  miscellaneous ;
 
 //import-import
 import java.util.Scanner;
-import produk.Produk ;
-import produk.Makanan ;
-import produk.Minuman ;
+import produk.* ;
         
         
 public class GenMethods<T> {
