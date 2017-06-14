@@ -3,6 +3,13 @@
  *
  * @author GOODWARE1
  */
+
+//keterangan package
+package produk ;
+
+//import-import
+import miscellaneous.DataPekerja ;
+
 public class Minuman extends Produk implements DataPekerja {
 
     //konstanta string khusus kelas minuman
@@ -20,7 +27,7 @@ public class Minuman extends Produk implements DataPekerja {
     public static Minuman[] larikMinuman = new Minuman[max];
 
     //override constructor kelas abstract
-    Minuman(int paket) {
+    public Minuman(int paket) {
         //panggil super
         super(paket);
         //timpa tampilan dengan keterangan minuman

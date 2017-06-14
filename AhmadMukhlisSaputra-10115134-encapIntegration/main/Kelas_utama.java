@@ -3,9 +3,24 @@
  *
  * @author GOODWARE1
  */
+
+//keterangan package
+package main ;
+
+//import-import
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
+import customer.Pembeli ;
+import customer.Langganan ;
+import produk.Produk ;
+import produk.Makanan ;
+import produk.Minuman ;
+import delivery.Delivery ;
+import miscellaneous.GenMethods ;
+import miscellaneous.GenerikQu ;
+
+
 
 public class Kelas_utama {
 

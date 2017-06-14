@@ -3,8 +3,15 @@
  *
  * @author GOODWARE1
  */
-import java.util.Scanner;
 
+//keterangan package
+package delivery ;
+
+//import-import
+import java.util.Scanner;
+import miscellaneous.DataPekerja ;
+import miscellaneous.GenMethods ;
+        
 public class Delivery implements DataPekerja {
 
     private int ongkir, jarak;

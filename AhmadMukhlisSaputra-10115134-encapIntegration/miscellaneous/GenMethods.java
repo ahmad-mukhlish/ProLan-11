@@ -8,8 +8,17 @@
  *
  * @author GOODWARE1
  */
-import java.util.Scanner;
 
+//keterangan package
+package  miscellaneous ;
+
+//import-import
+import java.util.Scanner;
+import produk.Produk ;
+import produk.Makanan ;
+import produk.Minuman ;
+        
+        
 public class GenMethods<T> {
 
     //method generic dengan parameter objek bertipe T    

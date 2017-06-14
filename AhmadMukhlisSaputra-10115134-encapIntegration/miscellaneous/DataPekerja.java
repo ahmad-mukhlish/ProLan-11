@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+//keterangan package
+package miscellaneous ;
+
 public interface DataPekerja {
 
     public String getNamaKasir();

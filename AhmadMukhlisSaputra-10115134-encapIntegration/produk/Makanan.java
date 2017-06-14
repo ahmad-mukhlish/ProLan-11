@@ -3,6 +3,13 @@
  *
  * @author GOODWARE1
  */
+
+//keterangan package
+package produk ;
+
+//import-import
+import miscellaneous.DataPekerja ;
+
 public class Makanan extends Produk implements DataPekerja {
 
     //konstanta string khusus kelas makanan
@@ -19,7 +26,7 @@ public class Makanan extends Produk implements DataPekerja {
     public static Makanan[] larikMakanan = new Makanan[max];
 
     //override constructor kelas abstract
-    Makanan(int paket) {
+    public Makanan(int paket) {
         super(paket);
         tampilan = Makanan.tampilkan(this, keterangan_makanan, paket, this.jadi);
 

@@ -3,6 +3,13 @@
  *
  * @author GOODWARE1
  */
+
+//keterangan package
+package produk ;
+
+//import-import 
+import miscellaneous.DataPekerja ;
+
 //kelas abstract
 public abstract class Produk implements DataPekerja {
 

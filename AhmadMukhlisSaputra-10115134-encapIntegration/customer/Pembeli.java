@@ -3,9 +3,15 @@
  *
  * @author GOODWARE1
  */
-import java.util.Scanner;
 
-class Pembeli {
+//keterangan package
+package customer ;
+
+//import-import
+import java.util.Scanner;
+import miscellaneous.GenMethods ;
+
+public class Pembeli {
 
     //attribut private kelas pembeli untuk proses encapsulation
     private String nama;
@@ -147,7 +153,7 @@ class Pembeli {
     }
 
     //pesan (Banner) protected yang akan di-override oleh kelas Langganan   
-    protected void Banner() {
+    public void Banner() {
         System.out.println("\nTerimakasih atas kedatangannya pembeli " + nama + " ^_^\n");
     }
 

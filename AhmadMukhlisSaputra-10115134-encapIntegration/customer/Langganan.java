@@ -3,6 +3,12 @@
  *
  * @author GOODWARE1
  */
+
+//keterangan package
+package customer  ;
+
+//import-import
+import miscellaneous.GenMethods ;
 import java.util.Scanner;
 
 //kelas Langganan, subclass dari Pembeli
@@ -61,7 +67,7 @@ public class Langganan extends Pembeli {
     }
 
     @Override
-    protected void Banner() {
+    public void Banner() {
         System.out.println("\nTerimakasih atas kedatangannya langganan " + this.nama + " ^_^\n");
     }
 
