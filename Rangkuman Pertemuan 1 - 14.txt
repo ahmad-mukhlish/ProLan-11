@@ -1,0 +1,343 @@
+Rangkuman Pertemuan 1 - 14 
+
+NIM 	: 10115134
+Nama 	: Ahmad Mukhlis Saputra
+Kelas 	: Prolan - 11
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pertemuan 1 : Pengenalan
+
+Link materi 		: 
+ 
+    - http://www.belajarjavayuks.com/2017/03/pengenalan-java.html
+	- http://www.belajarjavayuks.com/2017/03/sintaks-di-java.html
+	- http://www.belajarjavayuks.com/2017/03/installasi-jdk.html
+	- http://www.belajarjavayuks.com/2017/03/setting-path-untuk-java.html
+	- http://www.belajarjavayuks.com/2017/03/program-pertama-di-java.html
+	- http://www.belajarjavayuks.com/2017/03/menjalankan-java-di-cmd.html
+
+Pelajaran di kelas 	:
+
+	- Peraturan perkuliahan
+    - Pengenalan konsep OOP
+	- Pengenalan Java
+
+Pelajaran di lab 	:
+
+	- Instalasi Java
+	- Setting Path untuk proses kompilasi program
+	- Program "Hello World!"
+	- Cara kompilasi
+	- Pengenalan GitHub
+
+Tugas 				:
+
+	- Pembuatan Akun GitHub
+
+Link tugas github 	:
+
+	- Akun GitHub 	: https://github.com/ahmad-mukhlish
+	- Hello World 	: https://github.com/ahmad-mukhlish/ProLan-11/tree/master/Tugas%201%20-%20Hello%20World
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pertemuan 2 : Konsep OOP 
+
+Link materi 		: 
+ 
+    - http://www.belajarjavayuks.com/2017/03/konsep-dasar-oop.html
+	- http://www.belajarjavayuks.com/2017/03/installasi-netbeans.html
+	- http://www.belajarjavayuks.com/2017/03/input-output-di-java.html
+
+Pelajaran di kelas 	:
+
+	- Penjabaran lebih lanjut mengenai konsep OOP
+
+Pelajaran di lab 	:
+
+	- Penjelasan megenai JVM, JRE serta JDK
+	- Instalasi Netbeans 
+	- Input Output
+	- Biodata
+
+Tugas 				:
+
+	- Biodata Mahasiswa
+
+Link tugas github 	:
+
+	- Mahasiswa 	: https://github.com/ahmad-mukhlish/ProLan-11/tree/master/Tugas%202%20-%20Mahasiswa
+	- Input Output  : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/Tugas%203%20-%20Input%20-%20Output
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pertemuan 3 : Kelas dan Objek 
+
+Link materi 		: 
+ 
+    - http://www.belajarjavayuks.com/2017/03/konsep-dasar-oop.html
+	- http://www.belajarjavayuks.com/2017/03/tipe-data-di-java.html
+	- http://www.belajarjavayuks.com/2017/03/variabel-di-java.html
+	- http://www.belajarjavayuks.com/2017/03/modifiers-di-java.html
+	
+
+Pelajaran di kelas 	:
+
+	- Penjabaran lebih lanjut mengenai konsep OOP
+	- Access modifier
+	- Instansiasi kelas
+
+Pelajaran di lab 	:
+
+	- Penjelasan tipe data beserta demo bersama
+	- Penjelasa variabel beserta demo bersama
+
+Tugas 				:
+
+	- Pembuatan kelas masing - masing 
+
+Link tugas github 	:
+
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pertemuan 4 : Method, konstruktor, this dan attribut 
+
+Link materi 		: 
+ 
+    - http://www.belajarjavayuks.com/2017/03/method-konstruktor-this-dan-atribut-oop.html
+	- http://www.belajarjavayuks.com/2017/03/operator-di-java.html
+	
+
+Pelajaran di kelas 	:
+
+	- Penjelasan method, konstruktor, this dan attribut
+	- Pembuatan method, konstruktor, this dan attribut
+	- Pemanggilan method, konstruktor, this dan attribut
+	- Penjelasan konsep overloading
+	- Penjelasan parameter
+
+Pelajaran di lab 	:
+
+	- Test pembuatan program ipk 
+	- Operator pada java
+
+Tugas 				:
+
+	- Penerapan method, konstruktor, this dan attribut seta overloading pada kelas masing - masing 
+
+Link tugas github 	:
+
+    - IPK mahasiswa 			 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/Tugas%207%20-%20IPK%20Mahasiswa
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pertemuan 5 : Inheritance
+
+Link materi 		: 
+ 
+    - http://www.belajarjavayuks.com/2017/03/inheritance.html
+	
+
+Pelajaran di kelas 	:
+
+	- Penjelasan seta penggunaan inheritance
+	- Penjelasan serta penggunaan keyword Super
+	- Hubungan antar kelas (has-a / is-a)
+	- Quiz
+
+Pelajaran di lab 	:
+
+	- Penerapan konsep inheritance pada kelas masing - masing
+	- Tugas sorting angka (boleh menggunakan array boleh tidak)
+
+Tugas 				:
+
+	- Penerapan konsep inheritance pada kelas masing - masing
+
+Link tugas github 	:
+
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+	- Latihan Array				 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/Tugas%209%20-%20Latihan%20Array
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pertemuan 6 dan 7 : Override & Polimorfisme
+
+Link materi 		: 
+ 
+    - http://www.belajarjavayuks.com/2017/04/overriding.html
+	- http://www.belajarjavayuks.com/2017/04/polimorfisme.html
+	
+
+Pelajaran di kelas 	:
+
+	- Penjelasan seta penggunaan override
+	- Aturan override di mana access modifier method yang di-override tidak boleh lebih restrictive
+	- "Override" konstruktor
+
+Pelajaran di lab 	:
+
+	- Penjelasan polimorfisme sekilas
+
+Tugas 				:
+
+	- Penerapan konsep override pada method dan konstruktor pada kelas masing - masing
+
+Link tugas github 	:
+
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Pertemuan 8 - UTS
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pertemuan 10 : Enkapsulasi
+
+Link materi 		: 
+ 
+    - http://www.belajarjavayuks.com/2017/06/encapsulation.html
+
+Pelajaran di kelas 	:
+
+	- Renjelasan, penggunaan dan aturan enkapsulasi
+	
+Pelajaran di lab 	:
+
+	- Demo enkapsulasi bersama
+	- Pengenalan shortcut pada netbeans untuk proses enkapsulasi otomatis 
+	- Penerapan konsep enkapsulasi pada kelas masing - masing 
+	- Penjelasan sendiri mengenai perbedaan konsep data hiding pada kelas abstract dan enkapsulasi 
+	
+Tugas 				:
+
+	- Penerapan konsep enkapsulasi pada kelas masing - masing
+	- Penjelasan sendiri mengenai perbedaan konsep data hiding pada kelas abstract dan enkapsulasi
+
+Link tugas github 	:
+
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+    - Data hiding				 : https://github.com/ahmad-mukhlish/ProLan-11/commit/32aab508b805ed46fdd33e1760156c59417aaec3		
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pertemuan 11 : Inteface
+
+Link materi 		: 
+ 
+    - http://www.belajarjavayuks.com/2017/06/interface.html
+
+Pelajaran di kelas 	:
+
+	- Renjelasan, penggunaan dan aturan inteface
+	- Contoh inteface pada socket listrik
+	- Demo interface
+	- Perbandingan antara interface dan kelas abstract
+	
+Pelajaran di lab 	:
+ 
+	- Penerapan konsep interface pada kelas masing - masing 
+	- Penjelasan sendiri mengenai tagging interface 
+	
+Tugas 				:
+
+	- Penerapan konsep interface pada kelas masing - masing 
+	- Penjelasan sendiri mengenai tagging interface 
+
+Link tugas github 	:
+
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+	- Tagging interface			 : https://github.com/ahmad-mukhlish/ProLan-11/commit/4971469f41ca2cbe955d3ccfe770e372912a904f
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pertemuan 12 : Kelas Generik
+
+Link materi 		: 
+ 
+    - http://www.belajarjavayuks.com/2017/06/generic-class.html
+
+Pelajaran di kelas 	:
+
+	- Penjelasan, aturan serta penggunaan kelas generik
+	- Perbedaan kelas generik dan konsep inheritance
+	
+Pelajaran di lab 	:
+ 
+	- Pass (melewatkan) parameter objek melalui generik
+	- Penerapan kelas generik pada kelas masing-masing 
+	
+Tugas 				:
+
+	- Penerapan kelas generik pada kelas masing-masing 
+
+Link tugas github 	:
+
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pertemuan 13 : Kelas Generik berparamater ganda serta method generik
+
+Link materi 		: 
+ 
+    - http://www.belajarjavayuks.com/2017/06/generic-method.html
+
+Pelajaran di kelas 	:
+
+	- Penjelasan, aturan serta penggunaan generik method dan kelas generik berparameter ganda
+	- Diskusi kelas mengenai kelas generik 
+	
+Pelajaran di lab 	:
+ 
+	- Sprint penerapan kelas generik berparameter ganda dan method generik pada kelas masing-masing 
+	
+Tugas 				:
+
+	- Penerapan kelas generik berparameter ganda dan method generik pada kelas masing-masing
+
+Link tugas github 	:
+
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pertemuan 14 : Package
+
+Link materi 		: 
+ 
+    - http://www.belajarjavayuks.com/2017/06/packages.html
+
+Pelajaran di kelas 	:
+
+	- Penjelasan singkat package beserta sintaks dan import pada pengaksesan package yang berbeda
+	
+Pelajaran di lab 	:
+ 
+	- Penerapan konsep package pada kelas masing-masing
+	
+Tugas 				:
+
+	- Penerapan konsep package pada kelas masing-masing
+
+Link tugas github 	:
+
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
