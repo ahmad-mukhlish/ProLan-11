@@ -1,0 +1,115 @@
+Konsep OOP dan Java pada penerapan Program Restoran Sederhana
+
+NIM 	: 10115134
+Nama 	: Ahmad Mukhlis Saputra
+Kelas	: Prolan-11
+
+1. Kelas dan Objek  : Semua kelas pada program ini dikembangkan berdasarkan konsep kelas dan objek. 
+
+2. Input Scanner    : Kelas yang menggunakan konsep Input Scanner dapat dilihat pada : 
+                      
+                      - Kelas pembeli dan langganan pada package customer.
+                      - Kelas Delivery pada package delivery.
+                      - Kelas GenMethods pada package miscellaneous.
+                      - Kelas_utama pada package main.
+
+3. Method	    : Semua kelas pada program ini menggunakan method, baik itu sebagai fungsi atau sebagai prosedur.
+
+4. Static   	    : Semua kelas pada program ini berisi attribut dan atau method static, kecuali Kelas_utama (main class), interface DataPekerja, Kelas generik GenerikQu serta kelas
+                      abstract Produk.
+
+5. Penanggalan SDF  : Konsep penanggalan dengan metoda simple date formatting dapat dilihat pada Kelas_utama pada package main.
+
+6. Konstruktor      : Konstruktor dapat dilihat pada : semua kelas yang terdapat pada package produk.
+
+7. This		    : This dapat dilihat pada :
+
+                      - this yang membedakan attribut dan parameter bisa dilihat di : 
+		 		* konstruktor kelas Makanan dan Minuman pada package produk.
+				* Getter Setter kelas : # Makanan dan Minuman package produk.
+							# GenerikQu package miscellaneous.
+							# Delivery package delivery.
+ 							# Pembeli dan langganan package customer.
+
+                      - this untuk melewatkan argumen pada konstruktor dengan objek yang akan diinstansiasi bisi dilihat di :
+                                * konstruktor kelas Makanan dan Minuman pada package produk.
+
+8. Attribut	    : Semua kelas pada program ini memiliki attribut, kecuali Kelas_utama (main class), interface DataPekerja, Kelas generik GenMethods serta kelas
+                      abstract Produk.
+
+9. Overloading	    : Konsep overloading dapat dilihat pada : method transaksi di kelas Pembeli pada package customer.
+
+10. Final	    : Kelas yang menggunakan keyword final : Kelas Pembeli pada package customer, kelas Delivery pada package delivery, serta kelas Makanan dan Minuman
+                      pada package produk.
+
+11. Instanceof      : Kelas yang menggunakan keyword instanceof : Kelas GenMethods pada package miscellaneous.
+
+12. Inheritance	    : Kelas yang menerapkan konsep inheritance bisa dilihat pada :
+                      
+                      - Kelas Makanan dan Minuman pada package produk yang meng-extends kelas Produk pada package yang sama.
+                      - Kelas Langganan pada package customer yang meng-extedns kelas Pembeli pada package yang sama.
+
+13. Array	    : Kelas yang menerapkan konsep Array : kelas Makanan dan Minuman pada package produk.
+
+14. Override	    : Kelas yang menerapkan konsep override pada method bisa dilihat pada : 
+
+ 		      - Kelas Makanan dan Minuman pada package produk yang meng-extends kelas Produk pada package yang sama.
+                      - Kelas Langganan pada package customer yang meng-extedns kelas Pembeli pada package yang sama.
+                      - Kelas Makanan dan Minuman serta Produk pada package produk yang meng-implement interface DataPekerja pada package miscellaneous.
+                      - Kelas Delivery pada package delivery yang meng-implement interface DataPekerja pada package miscellaneous.
+                      
+                      Sementara kelas yang menerapkan "overriding constructor" bisa dilihat pada :
+                     
+                      - Konstruktor kelas Makanan dan Minuman pada package produk yang meng-extends kelas Produk pada package yang sama.
+                     
+15. Polimorfisme    : Kelas yang menerapkan konsep polimorfisme bisa dilihat pada Kelas_utama pada package main.
+
+16. Abstraksi	    : Kelas yang menerapkan konsep abstraksi kelas abstrak Produk yang di-extends oleh kelas Makanan dan Minuman pada package produk.
+
+17. Enkapsulasi	    : Kelas yang menerapkan konsep enkapsulasi bisa dilihat di :
+                      
+                      - Getter Setter kelas : * Makanan dan Minuman package produk.
+					      * GenerikQu package miscellaneous.
+					      * Delivery package delivery.
+ 					      * Pembeli dan langganan package customer.
+                       
+                      - Pemanggilan getter setter : pada Kelas_utama pada package main.
+
+18. Interface	    : Kelas yang menerapkan konsep interface dapat dilihat pada :
+                      
+                      - Interface DataPekerja pada package miscellaneous.
+		      - Kelas Makanan dan Minuman serta Produk pada package produk yang meng-implement interface DataPekerja pada package miscellaneous.
+                      - Kelas Delivery pada package delivery yang meng-implement interface DataPekerja.     
+
+19. Kelas Generik   : Kelas yang menerapkan konsep kelas generik dapat dilihat pada :
+                     
+                      - Pendefinisian kelas : kelas GenerikQu (1 parameter) dan GenMethods (2 parameter) pada package miscellaneous.
+                      - Pemanggilan kelas   : Kelas_utama pada package main serta kelas Pembeli dan Langganan pada package customer.
+
+20. Method Generik  : Kelas yang menerapkan konsep method generik dapat dilihat pada : 
+                     
+                      - Pendefinisian kelas : kelas GenerikQu dan GenMethods pada package miscellaneous & kelas Pembeli pada package miscellaneous.
+                      - Pemanggilan kelas   : Kelas_utama pada package main serta kelas Pembeli dan Langganan pada package customer.
+
+21. Typecasting     : Kelas yang menerapkan konsep typecasting adalah kelas GenMethods pada package miscellaneous. 
+
+22. Package	    : Semua kelas dikelompokan kedalam package-package, yang rinciannya : 
+                      
+                      - customer      : Kelas Pembeli dan kelas Langganan.
+                      - delivery      : Kelas Delivery.
+                      - main          : Kelas_utama.
+                      - miscellaneous : Kelas DataProduk, GenerikQu dan GenMethods.
+                      - produk        : Kelas Makanan, Minuman dan Produk.
+
+23. Jebak Eksepsi   : Kelas yang menerapkan konsep typecasting adalah kelas GenMethods pada package miscellaneous. 
+                 	
+                     
+                       
+                      
+ 
+
+                         
+
+
+
+					  
