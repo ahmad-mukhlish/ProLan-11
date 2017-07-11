@@ -1,0 +1,7 @@
+Untuk mengeksekusi, harus disertakan classpath jar file yang berada dalam folder lib
+
+java -cp .;direktori_lengkap_konektor_Anda\lib\mysql-connector-java-5.1.23-bin.jar Main
+
+Dalam komputer penulis, eksekusi program pada cmd adalah sebagai berikut 
+
+java -cp .;"C:\Users\Muhlis-PC\Documents\GitHub\ProLan-11\Latihan GUI Java Swing\Sistem Mahasiswa Dbase Online (Beta)\lib\mysql-connector-java-5.1.23-bin.jar" Main
