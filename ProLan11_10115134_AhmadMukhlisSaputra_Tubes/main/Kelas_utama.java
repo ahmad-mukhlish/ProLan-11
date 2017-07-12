@@ -33,7 +33,7 @@ public class Kelas_utama {
 
         //deklarasi date dan sdf-nya
         Date sekarang = new Date();
-        SimpleDateFormat penanggalan = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat penanggalan = new SimpleDateFormat("EEEE, dd MMMM yyyy");
         SimpleDateFormat JamSekarang = new SimpleDateFormat("HH:mm:ss");
 
         //deklarasi variabel lokal 
