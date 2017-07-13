@@ -1,7 +1,13 @@
-Run program pada cmd dengan sintak :
+1. Arahkan dulu directory dengan command cd pada direktori package main.
 
-java -cp "direktori_classes" main.Main
+   Pada komputer penulis pengarahan direktori adalah :
 
-pada komputer penulis cara running program adalah : 
+   cd "C:\Users\Muhlis-PC\Documents\GitHub\ProLan-11\ProLan11_10115134_AhmadMukhlisSaputra_Tubes\main"
 
-java -cp "C:\Users\Muhlis-PC\Documents\GitHub\ProLan-11\ProLan11_10115134_AhmadMukhlisSaputra_Tubes\classes" main.Main
+2. Run program pada cmd dengan sintak :
+
+   java -cp "direktori_classes" main.Main
+
+   pada komputer penulis cara running program adalah : 
+
+   java -cp "C:\Users\Muhlis-PC\Documents\GitHub\ProLan-11\ProLan11_10115134_AhmadMukhlisSaputra_Tubes\classes" main.Main
