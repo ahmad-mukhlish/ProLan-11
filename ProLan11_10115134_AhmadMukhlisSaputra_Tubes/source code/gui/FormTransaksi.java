@@ -46,6 +46,7 @@ public class FormTransaksi extends javax.swing.JFrame {
     String[] bangku = new String[172 + 1];
     String[] menu_makanan = new String[5 + 1];
     String[] menu_minuman = new String[5 + 1];
+    String[] pilihan = {"Ya", "Tidak"};
     Boolean dibungkus = false, isLangganan = false, isDelivery = false;
     Long total = 0l, bungkusan = 0l, diskon = 0l, PPN = 0l, grand = 0l, uang_masuk = 0l, kembalian = 0l;
 
@@ -118,7 +119,7 @@ public class FormTransaksi extends javax.swing.JFrame {
             output_koki_makanan.setText(deliver.getNamaKoki());
             output_koki_minuman.setText(deliver.getNamaKoki());
             output_waitress.setText("");
-            output_jasa_ongkir.setText(""+deliver.hitungOngkir(deliver.getJarak()));
+            output_jasa_ongkir.setText("" + deliver.hitungOngkir(deliver.getJarak()));
         } else {
             output_driver.setText("");
             output_kasir.setText(makanan.getNamaKasir());
@@ -203,6 +204,37 @@ public class FormTransaksi extends javax.swing.JFrame {
         output_hrg_makanan_minuman.setText("" + total);
         pembungkusan(dibungkus);
         perhitungan();
+
+    }
+
+    private void batal() {
+        isLangganan = false;
+        check_langganan.setSelected(isLangganan);
+        labeling("Pembeli");
+        isDelivery = false;
+        check_delivery.setSelected(isDelivery);
+        delivery(isDelivery);
+        dibungkus = false;
+        pembungkusan(dibungkus);
+        check_dibungkus.setSelected(dibungkus);
+        bg.clearSelection();
+        input_alamat.setText("Alamat");
+        combo_jarak.setSelectedIndex(1);
+        input_struk.setText("Kode Struk");
+        input_nama.setText("Nama");
+        combo_bangku.setSelectedIndex(1);
+        combo_makanan.setSelectedIndex(1);
+        input_jml_makanan.setText("");
+        combo_minuman.setSelectedIndex(1);
+        input_jml_minuman.setText("");
+        output_hrg_makanan_minuman.setText("Harga Makanan dan Minuman");
+        output_hrg_bungkusnya.setText("");
+        output_potongan_harga.setText("0");
+        output_ppn.setText("0");
+        output_jasa_ongkir.setText("");
+        output_grand_total.setText("0");
+        input_uang_masuk.setText("Uang masuk");
+        output_kembalian.setText("Kembalian");
 
     }
 
@@ -539,8 +571,18 @@ public class FormTransaksi extends javax.swing.JFrame {
         output_kembalian.setText("Kembalian");
 
         btn_simpan.setText("Simpan");
+        btn_simpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_simpanActionPerformed(evt);
+            }
+        });
 
         btn_batal.setText("Batal");
+        btn_batal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_batalActionPerformed(evt);
+            }
+        });
 
         output_waitress.setEditable(false);
         output_waitress.setText("Kembalian");
@@ -658,16 +700,14 @@ public class FormTransaksi extends javax.swing.JFrame {
                                             .addComponent(input_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(114, 114, 114))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(204, 204, 204)
+                                        .addGap(203, 203, 203)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(radio_integer)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(radio_string))
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(check_langganan)
-                                                .addComponent(check_dibungkus)
-                                                .addComponent(check_delivery)))
+                                            .addComponent(radio_integer)
+                                            .addComponent(check_langganan)
+                                            .addComponent(check_delivery)
+                                            .addComponent(check_dibungkus))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(radio_string)
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(18, 18, 18))))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -681,19 +721,18 @@ public class FormTransaksi extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(check_langganan, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
                         .addGap(8, 8, 8)
                         .addComponent(jLabel25))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
+                        .addComponent(check_langganan, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(check_delivery)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(check_dibungkus)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -701,7 +740,7 @@ public class FormTransaksi extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(radio_integer)
                         .addComponent(radio_string)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -933,13 +972,31 @@ public class FormTransaksi extends javax.swing.JFrame {
 
     private void input_uang_masukFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_uang_masukFocusLost
         uang_masuk = Long.valueOf(input_uang_masuk.getText());
-        kembalian = uang_masuk - grand ;
-        output_kembalian.setText(""+kembalian);
+        kembalian = uang_masuk - grand;
+        output_kembalian.setText("" + kembalian);
     }//GEN-LAST:event_input_uang_masukFocusLost
 
     private void input_uang_masukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_uang_masukActionPerformed
-        output_kembalian.requestFocusInWindow() ;
+        output_kembalian.requestFocusInWindow();
     }//GEN-LAST:event_input_uang_masukActionPerformed
+
+    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
+        int batalkan = JOptionPane.showOptionDialog(null, "Yakin ingin membatalkan transaksi?", "Pembatalan transaksi",
+                JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null,
+                pilihan, pilihan[0]);
+        if (batalkan == JOptionPane.YES_OPTION) {
+            batal();
+        }
+
+    }//GEN-LAST:event_btn_batalActionPerformed
+
+    private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
+        int simpankan = JOptionPane.showOptionDialog(null, "Sudah yakin untuk menyimpan?", "Konfirmasi menyimpan",
+                JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                pilihan, pilihan[0]);
+        if (simpankan == JOptionPane.YES_OPTION) {
+        }   
+    }//GEN-LAST:event_btn_simpanActionPerformed
 
     /**
      * @param args the command line arguments
