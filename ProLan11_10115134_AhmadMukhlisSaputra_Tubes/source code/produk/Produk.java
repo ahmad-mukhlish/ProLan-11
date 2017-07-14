@@ -36,6 +36,10 @@ public abstract class Produk implements DataPekerja {
 
     public abstract void setJumlah(int jumlah);
 
+    public abstract long harga_jenis();
+    
+    public abstract long bungkus_jenis();
+    
     /* implementasi interface DataPekerja pada kelas Abstrak untuk makan di tempat  
        yang akan diimplementasi oleh kelas turunan Produk (Makanan dan Minuman) 
      */
@@ -48,5 +52,7 @@ public abstract class Produk implements DataPekerja {
     public String getNamaPetugas() {
         return "Rosmi";
     }
+    
+    
 
 }

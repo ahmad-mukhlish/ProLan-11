@@ -155,5 +155,15 @@ public class Minuman extends Produk implements DataPekerja {
     public String getNama_produk() {
         return nama_produk;
     }
+    
+     @Override
+    public long harga_jenis() {
+      return harga * jumlah ;
+    }
+
+    @Override
+    public long bungkus_jenis() {
+      return bungkusnya * jumlah ;
+    }
 
 }

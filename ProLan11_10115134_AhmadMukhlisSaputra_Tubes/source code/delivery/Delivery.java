@@ -15,6 +15,8 @@ import miscellaneous.GenMethods ;
 public class Delivery implements DataPekerja {
 
     private int ongkir, jarak;
+
+   
     private String tujuan, penugasan;
 
     private static boolean jasa_delivery;
@@ -41,7 +43,7 @@ public class Delivery implements DataPekerja {
     }
 
     //method penghitung ongkir berdasarkan jarak
-    public int hitungOngkir() {
+    public int hitungOngkir(int jarak) {
         if (jarak <= 10) {
             return 12000;
         } else if ((jarak > 10) && (jarak < 20)) {
@@ -57,7 +59,7 @@ public class Delivery implements DataPekerja {
             tujuan = input.nextLine();
             System.out.print("Jaraknya (dalam km)       \t\t: ");
             jarak = GenMethods.checker_int(GenMethods.ambil_int(input.next(), 1, 25), "Jarak delivery", 1, 25);
-            ongkir = hitungOngkir();
+            ongkir = hitungOngkir(jarak);
             penugasan = "Driver yang bertugas \t\t\t: ";
         } else {
             penugasan = "Waitress yang bertugas \t\t\t: ";
@@ -75,6 +77,8 @@ public class Delivery implements DataPekerja {
         return jasa_delivery;
 
     }
+    
+   
 
     //implementasi interface DataPekerja
     @Override

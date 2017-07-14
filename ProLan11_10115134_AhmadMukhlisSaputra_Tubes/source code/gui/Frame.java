@@ -33,7 +33,7 @@ public class Frame extends javax.swing.JFrame {
         int radio ;
         
         //deklarasi frame-frame lain
-         public static FormTransaksi    form    = new FormTransaksi() ;
+         FormTransaksi    form    = new FormTransaksi() ;
          LaporanTransaksi laporan = new LaporanTransaksi() ;
         
     
@@ -57,8 +57,8 @@ public class Frame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jDialog1 = new javax.swing.JDialog();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         radio_menu_1 = new javax.swing.JRadioButton();

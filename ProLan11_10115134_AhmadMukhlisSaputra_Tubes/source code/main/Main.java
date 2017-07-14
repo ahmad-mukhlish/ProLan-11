@@ -10,7 +10,7 @@ package main;
  * @author GOODWARE1
  */
 
-import gui.Frame ;
+import gui.* ;
 
 public class Main {
     
