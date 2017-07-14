@@ -123,7 +123,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="combo_makanan" min="-2" pref="316" max="-2" attributes="0"/>
                                   <Component id="output_koki_makanan" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Component id="input_jml_makanan" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="input_jml_makanan" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           </Group>
@@ -137,7 +137,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="combo_minuman" min="-2" pref="318" max="-2" attributes="0"/>
                                   <Component id="output_koki_minuman" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Component id="input_jml_minuman" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <Component id="input_jml_minuman" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                           </Group>

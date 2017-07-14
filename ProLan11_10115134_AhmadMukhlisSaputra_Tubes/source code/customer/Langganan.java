@@ -21,6 +21,10 @@ public class Langganan extends Pembeli {
     //attribut tambahan kelas langganan
     private double diskon_langganan;
 
+    public double getDiskon_langganan() {
+        return diskon_langganan;
+    }
+
     //prosedur static pengecek langganan
     public static boolean cekLangganan() {
         Scanner inputan = new Scanner(System.in);
@@ -32,11 +36,14 @@ public class Langganan extends Pembeli {
 
     //override method hitung potongan, bila member potongannya ditambah 20%
     @Override
-    public void hitungPotongan(int pembayaran) {
+    public void hitungPotongan(long pembayaran) {
         if ((pembayaran) >= 18000) {  //pemanggilan super
             diskon_langganan = super.getDiskon_awal() + 0.15;
             potongan = diskon_langganan * pembayaran;
         }
+        else
+         potongan = 0.0 ;   
+                
     }
 
     //override method-method pembeli, hanya merubah label "pembeli" menjadi "langganan"

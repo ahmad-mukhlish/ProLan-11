@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -27,8 +27,9 @@ public class FormTransaksi extends javax.swing.JFrame {
 
         initComponents();
         delivery(false);
-        pembungkusan(false);
+        pembungkusan(dibungkus);
         pbl.setDiskon_awal(0.05);
+        lgn.setDiskon_awal(0.05);
         bg.add(radio_integer);
         bg.add(radio_string);
 
@@ -45,7 +46,8 @@ public class FormTransaksi extends javax.swing.JFrame {
     String[] bangku = new String[172 + 1];
     String[] menu_makanan = new String[5 + 1];
     String[] menu_minuman = new String[5 + 1];
-    Boolean dibungkus ;
+    Boolean dibungkus = false, isLangganan = false;
+    Long total = 0l, bungkusan = 0l, diskon = 0l;
 
     //inisiasi combo box jarak
     private javax.swing.ComboBoxModel getComboBoxModelJarak() {
@@ -138,21 +140,49 @@ public class FormTransaksi extends javax.swing.JFrame {
     }
 
     private void pembungkusan(Boolean status) {
-        Long bungkusan = makanan.bungkus_jenis() + minuman.bungkus_jenis() ;
+        bungkusan = makanan.bungkus_jenis() + minuman.bungkus_jenis();
+
         lbl_bungkus.setEnabled(status);
         output_hrg_bungkusnya.setEnabled(status);
-        
-        if (status == true)
-         output_hrg_bungkusnya.setText(""+bungkusan);
-        else
-         output_hrg_bungkusnya.setText("");   
+        if (status == true) {
+            output_hrg_bungkusnya.setText("" + bungkusan);
+        } else {
+            output_hrg_bungkusnya.setText("");
+        }
+
+        hitung_diskon();
+
     }
-    
-    private void hitung_bayar_bruto(){
-        long total = makanan.harga_jenis() + minuman.harga_jenis();
+
+    private void hitung_diskon() {
+
+        if (isLangganan == true) {
+            if (dibungkus == true) {
+                lgn.hitungPotongan(total + bungkusan);
+            } else {
+                lgn.hitungPotongan(total);
+            }
+            diskon = (long) lgn.getPotongan();
+        } else {
+            if (dibungkus == true) {
+                pbl.hitungPotongan(total + bungkusan);
+            } else {
+                pbl.hitungPotongan(total);
+            }
+
+            diskon = (long) pbl.getPotongan();
+
+        }
+        output_potongan_harga.setText("" + diskon);
+
+    }
+
+    private void hitung_bayar() {
+        total = makanan.harga_jenis() + minuman.harga_jenis();
         output_hrg_makanan_minuman.setText("" + total);
         pembungkusan(dibungkus);
-        
+        hitung_diskon();
+
     }
 
     /**
@@ -513,7 +543,7 @@ public class FormTransaksi extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(combo_makanan, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(output_koki_makanan, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(input_jml_makanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(input_jml_makanan, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(78, 78, 78))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -524,7 +554,7 @@ public class FormTransaksi extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(combo_minuman, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(output_koki_minuman, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(input_jml_minuman, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(input_jml_minuman, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(76, 76, 76))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -786,15 +816,19 @@ public class FormTransaksi extends javax.swing.JFrame {
     }//GEN-LAST:event_check_deliveryItemStateChanged
 
     private void check_langgananItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_check_langgananItemStateChanged
-        if (evt.getStateChange() == ItemEvent.DESELECTED) {
-            labeling("Pembeli");
-        } else {
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            isLangganan = true;
             labeling("Langganan");
+
+        } else {
+            isLangganan = false;
+            labeling("Pembeli");
         }
+        hitung_diskon();
     }//GEN-LAST:event_check_langgananItemStateChanged
 
     private void check_dibungkusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_check_dibungkusItemStateChanged
-        dibungkus = !(evt.getStateChange() == ItemEvent.DESELECTED) ;
+        dibungkus = !(evt.getStateChange() == ItemEvent.DESELECTED);
         pembungkusan(dibungkus);
     }//GEN-LAST:event_check_dibungkusItemStateChanged
 
@@ -813,14 +847,14 @@ public class FormTransaksi extends javax.swing.JFrame {
 
         int jumlah = Integer.valueOf("" + input_jml_makanan.getText());
         makanan.setJumlah(jumlah);
-        hitung_bayar_bruto();
-        
+        hitung_bayar();
+
     }//GEN-LAST:event_input_jml_makananFocusLost
 
     private void combo_jarakItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_jarakItemStateChanged
 
         output_jasa_ongkir.setText("" + deliver.hitungOngkir(combo_jarak.getSelectedIndex()));
-        
+
     }//GEN-LAST:event_combo_jarakItemStateChanged
 
     private void input_alamatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_alamatFocusGained
@@ -845,26 +879,26 @@ public class FormTransaksi extends javax.swing.JFrame {
 
     private void combo_minumanItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_minumanItemStateChanged
         minuman.setProduk(combo_minuman.getSelectedIndex());
-        hitung_bayar_bruto() ;
+        hitung_bayar();
     }//GEN-LAST:event_combo_minumanItemStateChanged
 
     private void combo_makananItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_makananItemStateChanged
-        makanan.setProduk(combo_minuman.getSelectedIndex());
-        hitung_bayar_bruto() ;
+        makanan.setProduk(combo_makanan.getSelectedIndex());
+        hitung_bayar();
     }//GEN-LAST:event_combo_makananItemStateChanged
 
     private void input_jml_minumanFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_jml_minumanFocusLost
         int jumlah = Integer.valueOf("" + input_jml_minuman.getText());
         minuman.setJumlah(jumlah);
-        hitung_bayar_bruto();
+        hitung_bayar();
     }//GEN-LAST:event_input_jml_minumanFocusLost
 
     private void input_jml_makananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_jml_makananActionPerformed
-        output_hrg_makanan_minuman.requestFocusInWindow() ;
+        output_waitress.requestFocus();
     }//GEN-LAST:event_input_jml_makananActionPerformed
 
     private void input_jml_minumanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_jml_minumanActionPerformed
-        output_hrg_makanan_minuman.requestFocusInWindow() ;
+        output_waitress.requestFocus();
     }//GEN-LAST:event_input_jml_minumanActionPerformed
 
     /**
@@ -881,16 +915,24 @@ public class FormTransaksi extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormTransaksi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormTransaksi.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormTransaksi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormTransaksi.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormTransaksi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormTransaksi.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormTransaksi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormTransaksi.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

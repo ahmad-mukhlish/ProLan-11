@@ -1,15 +1,13 @@
-
 /**
  *
  * @author GOODWARE1
  */
-
 //keterangan package
-package customer ;
+package customer;
 
 //import-import
 import java.util.Scanner;
-import miscellaneous.GenMethods ;
+import miscellaneous.GenMethods;
 
 public class Pembeli {
 
@@ -19,6 +17,14 @@ public class Pembeli {
 
     //protected variabel untuk proses inheritance
     protected double potongan, kembalian, total_bayar, pajak;
+
+    public double getPotongan() {
+        return potongan;
+    }
+
+    public static double getPPN() {
+        return PPN;
+    }
     protected long uang_masuk;
 
     //konstanta dengan kata kunci final
@@ -28,7 +34,7 @@ public class Pembeli {
     private double diskon_awal;
 
     //getter dan setter    
-    protected double getDiskon_awal() {
+    public double getDiskon_awal() {
         return diskon_awal;
     }
 
@@ -100,9 +106,11 @@ public class Pembeli {
     }
 
     //penghitung potongan pembeli
-    protected void hitungPotongan(int pembayaran) {
+    public void hitungPotongan(long pembayaran) {
         if ((pembayaran) >= 18000) {
             potongan = getDiskon_awal() * pembayaran;
+        } else {
+            potongan = 0.0;
         }
 
     }
@@ -114,7 +122,7 @@ public class Pembeli {
     }
 
     //prosedur overload, yang ini tanpa parameter bungkus
-    public void transaksi(int harga) {
+    public void transaksi(long harga) {
         this.hitungPotongan(harga);
         total_bayar = (harga - potongan);
         pajak = (PPN * total_bayar);
@@ -132,7 +140,7 @@ public class Pembeli {
     }
 
     //prosedur overload, yang ini dengan parameter bungkus
-    public void transaksi(int harga, int bungkus) {
+    public void transaksi(long harga, long bungkus) {
 
         this.hitungPotongan(harga + bungkus);
         total_bayar = harga + bungkus - potongan;
