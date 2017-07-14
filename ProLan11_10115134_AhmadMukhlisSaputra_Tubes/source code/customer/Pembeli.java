@@ -18,9 +18,8 @@ public class Pembeli {
     //protected variabel untuk proses inheritance
     protected double potongan, kembalian, total_bayar, pajak;
 
-    public double getPotongan() {
-        return potongan;
-    }
+    
+    
 
     public static double getPPN() {
         return PPN;
@@ -44,6 +43,14 @@ public class Pembeli {
 
     public double getTotal_bayar() {
         return total_bayar;
+    }
+    
+    public double getPajak() {
+        return pajak;
+    }
+
+    public double getPotongan() {
+        return potongan;
     }
 
     //inisiasi Scanner
@@ -122,13 +129,14 @@ public class Pembeli {
     }
 
     //prosedur overload, yang ini tanpa parameter bungkus
-    public void transaksi(long harga) {
+    public void transaksi(long harga, boolean gui) {
         this.hitungPotongan(harga);
         total_bayar = (harga - potongan);
         pajak = (PPN * total_bayar);
         total_bayar += pajak;
-
-        System.out.println("\nHarga makanan \t\t\t\t: " + harga);
+        
+        if (gui == false)
+        {System.out.println("\nHarga makanan \t\t\t\t: " + harga);
         System.out.printf("Potongan harga \t\t\t\t: %.0f\n", potongan);
         System.out.printf("Pajak PPN (10 persen) \t\t\t: %.0f\n", pajak);
         System.out.printf("Total Bayar \t\t\t\t: %.0f\n", total_bayar);
@@ -136,27 +144,28 @@ public class Pembeli {
         isiUangMasuk();
 
         kembalian = uang_masuk - total_bayar;
-        System.out.printf("Kembalian \t\t\t\t: %.0f\n", kembalian);
+        System.out.printf("Kembalian \t\t\t\t: %.0f\n", kembalian);}
     }
 
     //prosedur overload, yang ini dengan parameter bungkus
-    public void transaksi(long harga, long bungkus) {
+    public void transaksi(long harga, long bungkus, boolean gui) {
 
         this.hitungPotongan(harga + bungkus);
         total_bayar = harga + bungkus - potongan;
         pajak = (PPN * total_bayar);
         total_bayar += pajak;
-
-        System.out.println("\nHarga makanan \t\t\t\t: " + harga);
+       
+        if (gui == false)
+        {System.out.println("\nHarga makanan \t\t\t\t: " + harga);
         System.out.println("Harga bungkusnya \t\t\t: " + bungkus);
         System.out.printf("Potongan harga \t\t\t\t: %.0f\n", potongan);
         System.out.printf("Pajak PPN (10 persen) \t\t\t: %.0f\n", pajak);
         System.out.printf("Total Bayar \t\t\t\t: %.0f\n", total_bayar);
-
+        
         isiUangMasuk();
 
         kembalian = uang_masuk - total_bayar;
-        System.out.printf("Kembalian \t\t\t\t: %.0f\n", kembalian);
+        System.out.printf("Kembalian \t\t\t\t: %.0f\n", kembalian);}
 
     }
 

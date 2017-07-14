@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package gui;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -26,7 +26,7 @@ public class FormTransaksi extends javax.swing.JFrame {
     public FormTransaksi() {
 
         initComponents();
-        delivery(false);
+        delivery(isDelivery);
         pembungkusan(dibungkus);
         pbl.setDiskon_awal(0.05);
         lgn.setDiskon_awal(0.05);
@@ -46,8 +46,8 @@ public class FormTransaksi extends javax.swing.JFrame {
     String[] bangku = new String[172 + 1];
     String[] menu_makanan = new String[5 + 1];
     String[] menu_minuman = new String[5 + 1];
-    Boolean dibungkus = false, isLangganan = false;
-    Long total = 0l, bungkusan = 0l, diskon = 0l;
+    Boolean dibungkus = false, isLangganan = false, isDelivery = false;
+    Long total = 0l, bungkusan = 0l, diskon = 0l, PPN = 0l, grand = 0l, uang_masuk = 0l, kembalian = 0l;
 
     //inisiasi combo box jarak
     private javax.swing.ComboBoxModel getComboBoxModelJarak() {
@@ -118,12 +118,14 @@ public class FormTransaksi extends javax.swing.JFrame {
             output_koki_makanan.setText(deliver.getNamaKoki());
             output_koki_minuman.setText(deliver.getNamaKoki());
             output_waitress.setText("");
+            output_jasa_ongkir.setText(""+deliver.hitungOngkir(deliver.getJarak()));
         } else {
             output_driver.setText("");
             output_kasir.setText(makanan.getNamaKasir());
             output_koki_makanan.setText(makanan.getNamaKoki());
             output_koki_minuman.setText(minuman.getNamaKoki());
             output_waitress.setText(makanan.getNamaPetugas());
+            output_jasa_ongkir.setText("");
         }
     }
 
@@ -150,30 +152,49 @@ public class FormTransaksi extends javax.swing.JFrame {
             output_hrg_bungkusnya.setText("");
         }
 
-        hitung_diskon();
+        perhitungan();
 
     }
 
-    private void hitung_diskon() {
+    private void perhitungan() {
+        long temp = 0l;
 
         if (isLangganan == true) {
             if (dibungkus == true) {
                 lgn.hitungPotongan(total + bungkusan);
+                lgn.transaksi(total, bungkusan, true);
             } else {
                 lgn.hitungPotongan(total);
+                lgn.transaksi(total, true);
             }
             diskon = (long) lgn.getPotongan();
+            PPN = (long) lgn.getPajak();
+            temp = (long) lgn.getTotal_bayar();
+
         } else {
             if (dibungkus == true) {
                 pbl.hitungPotongan(total + bungkusan);
+                pbl.transaksi(total, bungkusan, true);
             } else {
                 pbl.hitungPotongan(total);
+                pbl.transaksi(total, true);
             }
 
             diskon = (long) pbl.getPotongan();
+            PPN = (long) pbl.getPajak();
+            temp = (long) pbl.getTotal_bayar();
 
         }
+
+        if (isDelivery == true) {
+            grand = (long) temp + deliver.hitungOngkir(deliver.getJarak());
+        } else {
+            grand = (long) temp;
+        }
+
         output_potongan_harga.setText("" + diskon);
+        output_ppn.setText("" + PPN);
+        output_grand_total.setText("" + grand);
 
     }
 
@@ -181,7 +202,7 @@ public class FormTransaksi extends javax.swing.JFrame {
         total = makanan.harga_jenis() + minuman.harga_jenis();
         output_hrg_makanan_minuman.setText("" + total);
         pembungkusan(dibungkus);
-        hitung_diskon();
+        perhitungan();
 
     }
 
@@ -501,6 +522,14 @@ public class FormTransaksi extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 input_uang_masukFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                input_uang_masukFocusLost(evt);
+            }
+        });
+        input_uang_masuk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_uang_masukActionPerformed(evt);
+            }
         });
 
         lbl_kembalian.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -811,7 +840,8 @@ public class FormTransaksi extends javax.swing.JFrame {
 
     private void check_deliveryItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_check_deliveryItemStateChanged
 
-        delivery(!(evt.getStateChange() == ItemEvent.DESELECTED));
+        isDelivery = !(evt.getStateChange() == ItemEvent.DESELECTED);
+        delivery(isDelivery);
 
     }//GEN-LAST:event_check_deliveryItemStateChanged
 
@@ -824,7 +854,7 @@ public class FormTransaksi extends javax.swing.JFrame {
             isLangganan = false;
             labeling("Pembeli");
         }
-        hitung_diskon();
+        perhitungan();
     }//GEN-LAST:event_check_langgananItemStateChanged
 
     private void check_dibungkusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_check_dibungkusItemStateChanged
@@ -852,8 +882,8 @@ public class FormTransaksi extends javax.swing.JFrame {
     }//GEN-LAST:event_input_jml_makananFocusLost
 
     private void combo_jarakItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_jarakItemStateChanged
-
-        output_jasa_ongkir.setText("" + deliver.hitungOngkir(combo_jarak.getSelectedIndex()));
+        deliver.setJarak(combo_jarak.getSelectedIndex());
+        output_jasa_ongkir.setText("" + deliver.hitungOngkir(deliver.getJarak()));
 
     }//GEN-LAST:event_combo_jarakItemStateChanged
 
@@ -900,6 +930,16 @@ public class FormTransaksi extends javax.swing.JFrame {
     private void input_jml_minumanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_jml_minumanActionPerformed
         output_waitress.requestFocus();
     }//GEN-LAST:event_input_jml_minumanActionPerformed
+
+    private void input_uang_masukFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_uang_masukFocusLost
+        uang_masuk = Long.valueOf(input_uang_masuk.getText());
+        kembalian = uang_masuk - grand ;
+        output_kembalian.setText(""+kembalian);
+    }//GEN-LAST:event_input_uang_masukFocusLost
+
+    private void input_uang_masukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_uang_masukActionPerformed
+        output_kembalian.requestFocusInWindow() ;
+    }//GEN-LAST:event_input_uang_masukActionPerformed
 
     /**
      * @param args the command line arguments

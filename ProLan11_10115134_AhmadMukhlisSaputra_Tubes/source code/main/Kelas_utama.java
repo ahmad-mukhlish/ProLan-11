@@ -126,13 +126,13 @@ public class Kelas_utama {
         if ((makanan.isJadi()) || (minuman.isJadi())) {
             //bila pembeli delivery, pasti dibungkus
             if (Delivery.isJasa_delivery()) {
-                customer.transaksi(makanan.getHarga() * makanan.getJumlah() + minuman.getHarga() * minuman.getJumlah(), makanan.getBungkusnya() * makanan.getJumlah() + minuman.getBungkusnya() * minuman.getJumlah());
+                customer.transaksi(makanan.getHarga() * makanan.getJumlah() + minuman.getHarga() * minuman.getJumlah(), makanan.getBungkusnya() * makanan.getJumlah() + minuman.getBungkusnya() * minuman.getJumlah(),false);
             } else {    //cek apakah transaksi dibungkus atau tidak bila customer makan di tempat
                 if (customer.pembungkusan()) {
                     //hitung transaksi dengan konsep getter beserta bungkusnya
-                    customer.transaksi(makanan.getHarga() * makanan.getJumlah() + minuman.getHarga() * minuman.getJumlah(), makanan.getBungkusnya() * makanan.getJumlah() + minuman.getBungkusnya() * minuman.getJumlah());
+                    customer.transaksi(makanan.getHarga() * makanan.getJumlah() + minuman.getHarga() * minuman.getJumlah(), makanan.getBungkusnya() * makanan.getJumlah() + minuman.getBungkusnya() * minuman.getJumlah(),false);
                 } else {
-                    customer.transaksi(makanan.getHarga() * makanan.getJumlah() + minuman.getHarga() * minuman.getJumlah());
+                    customer.transaksi(makanan.getHarga() * makanan.getJumlah() + minuman.getHarga() * minuman.getJumlah(),false);
                 }
             }
         }

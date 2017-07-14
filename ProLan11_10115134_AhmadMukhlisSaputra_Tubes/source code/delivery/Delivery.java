@@ -16,6 +16,8 @@ public class Delivery implements DataPekerja {
 
     private int ongkir, jarak;
 
+    
+
    
     private String tujuan, penugasan;
 
@@ -79,6 +81,14 @@ public class Delivery implements DataPekerja {
     }
     
    
+    //getter setter
+    public int getJarak() {
+        return jarak;
+    }
+
+    public void setJarak(int jarak) {
+        this.jarak = jarak;
+    }
 
     //implementasi interface DataPekerja
     @Override
