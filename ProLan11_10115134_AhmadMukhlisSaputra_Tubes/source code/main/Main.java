@@ -10,12 +10,12 @@ package main;
  * @author GOODWARE1
  */
 
-import GUI.Frame ;
+import gui.* ;
 
 public class Main {
     
     public static void main(String[] args) {
-        Frame app = new Frame() ;
+        FormTransaksi app = new FormTransaksi() ;
         app.setVisible(true) ;
     }
     

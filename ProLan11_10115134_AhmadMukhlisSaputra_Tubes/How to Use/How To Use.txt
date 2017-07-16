@@ -5,3 +5,6 @@ java -cp "direktori_classes" main.Main
 pada komputer penulis cara running program adalah : 
 
 java -cp "C:\Users\Muhlis-PC\Documents\GitHub\ProLan-11\ProLan11_10115134_AhmadMukhlisSaputra_Tubes\classes" main.Main
+
+Isi form seperti biasa, hasil kalkulasi akan muncul pada text field yang uneditable..
+Pada inputan textfield yang editable, tekan tombol enter bila selesai
