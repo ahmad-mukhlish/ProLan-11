@@ -125,7 +125,7 @@ public class FormTransaksi extends javax.swing.JFrame {
             output_koki_makanan.setText(makanan.getNamaKoki());
             output_koki_minuman.setText(minuman.getNamaKoki());
             output_waitress.setText(makanan.getNamaPetugas());
-            output_jasa_ongkir.setText("");
+            output_jasa_ongkir.setText("0");
         }
     }
 
@@ -383,7 +383,6 @@ public class FormTransaksi extends javax.swing.JFrame {
         lbl_alamat.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbl_alamat.setText("Alamat yang dituju ");
 
-        input_alamat.setText("Alamat");
         input_alamat.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 input_alamatFocusGained(evt);
@@ -409,7 +408,6 @@ public class FormTransaksi extends javax.swing.JFrame {
         lbl_struk.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbl_struk.setText("Kode Struk Pembeli");
 
-        input_struk.setText("Kode Struk");
         input_struk.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 input_strukFocusGained(evt);
@@ -424,7 +422,6 @@ public class FormTransaksi extends javax.swing.JFrame {
         lbl_nama.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbl_nama.setText("Nama Langganan Pembeli");
 
-        input_nama.setText("Nama ");
         input_nama.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 input_namaFocusGained(evt);
@@ -468,7 +465,6 @@ public class FormTransaksi extends javax.swing.JFrame {
         lbl_j_makanan.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbl_j_makanan.setText("Jumlah Makanan Pembeli");
 
-        input_jml_makanan.setText("Jumlah ");
         input_jml_makanan.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 input_jml_makananFocusGained(evt);
@@ -503,7 +499,6 @@ public class FormTransaksi extends javax.swing.JFrame {
         lbl_j_minuman.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbl_j_minuman.setText("Jumlah Minuman Pembeli");
 
-        input_jml_minuman.setText("Jumlah");
         input_jml_minuman.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 input_jml_minumanFocusGained(evt);
@@ -1045,8 +1040,16 @@ public class FormTransaksi extends javax.swing.JFrame {
                     JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
                     pilihan, pilihan[0]);
             if (simpankan == JOptionPane.YES_OPTION) {
+                if (input_struk.getText().isEmpty() || input_nama.getText().isEmpty() || (input_alamat.getText().isEmpty() && isDelivery) || input_jml_makanan.getText().isEmpty() || input_jml_minuman.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Data masih ada yang kosong...", "error", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    LaporanTransaksi.simpankan();
+                    Frame.laporan.setVisible(true);
+                }
             }
+
         }
+
     }//GEN-LAST:event_btn_simpanActionPerformed
 
     private void input_alamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_alamatActionPerformed
@@ -1111,15 +1114,15 @@ public class FormTransaksi extends javax.swing.JFrame {
     private javax.swing.JCheckBox check_delivery;
     private javax.swing.JCheckBox check_dibungkus;
     private javax.swing.JCheckBox check_langganan;
-    private javax.swing.JComboBox<String> combo_bangku;
-    private javax.swing.JComboBox<String> combo_jarak;
-    private javax.swing.JComboBox<String> combo_makanan;
-    private javax.swing.JComboBox<String> combo_minuman;
-    private javax.swing.JTextField input_alamat;
-    private javax.swing.JTextField input_jml_makanan;
-    private javax.swing.JTextField input_jml_minuman;
-    private javax.swing.JTextField input_nama;
-    private javax.swing.JTextField input_struk;
+    public static javax.swing.JComboBox<String> combo_bangku;
+    public static javax.swing.JComboBox<String> combo_jarak;
+    public static javax.swing.JComboBox<String> combo_makanan;
+    public static javax.swing.JComboBox<String> combo_minuman;
+    public static javax.swing.JTextField input_alamat;
+    public static javax.swing.JTextField input_jml_makanan;
+    public static javax.swing.JTextField input_jml_minuman;
+    public static javax.swing.JTextField input_nama;
+    public static javax.swing.JTextField input_struk;
     private javax.swing.JTextField input_uang_masuk;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1158,16 +1161,16 @@ public class FormTransaksi extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_uang_masuk;
     private javax.swing.JLabel lbl_waitress;
     private javax.swing.JTextField output_driver;
-    private javax.swing.JTextField output_grand_total;
+    public static javax.swing.JTextField output_grand_total;
     private javax.swing.JTextField output_hrg_bungkusnya;
     private javax.swing.JTextField output_hrg_makanan_minuman;
-    private javax.swing.JTextField output_jasa_ongkir;
+    public static javax.swing.JTextField output_jasa_ongkir;
     private javax.swing.JTextField output_kasir;
     private javax.swing.JTextField output_kembalian;
     private javax.swing.JTextField output_koki_makanan;
     private javax.swing.JTextField output_koki_minuman;
     private javax.swing.JTextField output_potongan_harga;
-    private javax.swing.JTextField output_ppn;
+    public static javax.swing.JTextField output_ppn;
     private javax.swing.JTextField output_waitress;
     // End of variables declaration//GEN-END:variables
 }

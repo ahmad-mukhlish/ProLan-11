@@ -7,12 +7,10 @@ package gui;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.awt.* ;
+import java.awt.*;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
-import javax.swing.* ;
-
-
+import javax.swing.*;
 
 /**
  *
@@ -23,28 +21,25 @@ public class Frame extends javax.swing.JFrame {
     /**
      * Creates new form Frame
      */
-    
-       //deklarasi date dan sdf-nya
-        Date sekarang = new Date();
-        SimpleDateFormat penanggalan = new SimpleDateFormat("EEEE, dd MMMM yyyy");
-        SimpleDateFormat JamSekarang = new SimpleDateFormat("HH:mm:ss");
-        
-        //menu radio button
-        int radio ;
-        
-        //deklarasi frame-frame lain
-         FormTransaksi    form    = new FormTransaksi() ;
-         LaporanTransaksi laporan = new LaporanTransaksi() ;
-        
-    
+    //deklarasi date dan sdf-nya
+    Date sekarang = new Date();
+    SimpleDateFormat penanggalan = new SimpleDateFormat("EEEE, dd MMMM yyyy");
+    SimpleDateFormat JamSekarang = new SimpleDateFormat("HH:mm:ss");
+
+    //menu radio button
+    int radio;
+
+    //deklarasi frame-frame lain
+    public static FormTransaksi form = new FormTransaksi();
+    public static LaporanTransaksi laporan = new LaporanTransaksi();
+
     public Frame() {
         initComponents();
         tanggal_sekarang.setText(penanggalan.format(sekarang));
-        jam_sekarang.setText("Dibuka pukul "+JamSekarang.format(sekarang));
-        
+        jam_sekarang.setText("Dibuka pukul " + JamSekarang.format(sekarang));
+
         buttonGroup1.add(radio_menu_1);
-        buttonGroup1.add(radio_menu_2) ;
-        
+        buttonGroup1.add(radio_menu_2);
 
     }
 
@@ -193,25 +188,25 @@ public class Frame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-     //scrollbar
-    
-    
+    //scrollbar
+
     private void radio_menu_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_menu_1ActionPerformed
-        radio = 1 ;
+        radio = 1;
     }//GEN-LAST:event_radio_menu_1ActionPerformed
 
     private void radio_menu_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_menu_2ActionPerformed
-        radio = 2 ;
+        radio = 2;
     }//GEN-LAST:event_radio_menu_2ActionPerformed
 
     private void btn_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuActionPerformed
-        if (radio == 1) 
-          form.setVisible(true) ;
-        else
-          laporan.setVisible(true) ;
+        if (radio == 1) {
+            form.setVisible(true);
+        } else {
+            laporan.setVisible(true);
+        }
+        laporan.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }//GEN-LAST:event_btn_menuActionPerformed
 
-    
     /**
      * @param args the command line arguments
      */

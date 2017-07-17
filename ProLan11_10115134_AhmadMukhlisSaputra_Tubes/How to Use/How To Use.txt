@@ -1,10 +1,24 @@
-Run program pada cmd dengan sintak :
+Program Restoran Sederhana berbasis GUI dan SQL online
 
-java -cp "direktori_classes" main.Main
+Untuk menggunakan program, pastikan komputer Anda terkoneksi ke internet.
+
+Cara Running program ada 2 :
+
+1. Via Program Restoran Sederhana GUI SQl online.jar
+2. Run program pada cmd dengan sintak :
+
+java -cp .;"direktori_mysql_connector";"direktori_classes" main.Main
 
 pada komputer penulis cara running program adalah : 
 
-java -cp "C:\Users\Muhlis-PC\Documents\GitHub\ProLan-11\ProLan11_10115134_AhmadMukhlisSaputra_Tubes\classes" main.Main
+java -cp .;C:\Users\Muhlis-PC\Documents\GitHub\ProLan-11\ProLan11_10115134_AhmadMukhlisSaputra_Tubes\lib\mysql-connector-java-5.1.23-bin.jar;C:\Users\Muhlis-PC\Documents\GitHub\ProLan-11\ProLan11_10115134_AhmadMukhlisSaputra_Tubes\classes main.Main
 
-Isi form seperti biasa, hasil kalkulasi akan muncul pada text field yang uneditable..
-Pada inputan textfield yang editable, tekan tombol enter bila selesai
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Fitur-fitur
+
+-
+-Menu utama, yang terdiri dari form dan laporan
+-Form diisi seperti biasa, pada bagian textfield, tekan enter untuk memasukan input
+-Form akan meng-insert data ke sql online
+-Bagian laporan akan menampilkan data yang telah disimpan di database
