@@ -30,9 +30,9 @@ public class LaporanTransaksi extends javax.swing.JFrame {
 
         dbSetting = new Koneksi();
         driver = "com.mysql.jdbc.Driver" ;
-        database = "jdbc:mysql://52.76.27.242:3306/sql12184856";
-        user = "sql12184856";
-        pass = "bBKecmfq6K" ; 
+        database = "jdbc:mysql://52.76.27.242:3306/sql12186431";
+        user = "sql12186431";
+        pass = "weSNbDyJM5" ; 
 
         tabelnyah.setModel(tableModel);
         setTableLoad();

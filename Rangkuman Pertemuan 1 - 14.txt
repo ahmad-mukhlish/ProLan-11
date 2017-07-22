@@ -102,7 +102,7 @@ Tugas 			:
 
 Link tugas github 	:
 
-	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/ProLan11_10115134_AhmadMukhlisSaputra_Tubes
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -135,7 +135,7 @@ Tugas 			:
 Link tugas github 	:
 
     	- IPK mahasiswa 			 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/Tugas%207%20-%20IPK%20Mahasiswa
-	- Program Restoran Sederhana 		 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+	- Program Restoran Sederhana 		 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/ProLan11_10115134_AhmadMukhlisSaputra_Tubes
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -165,7 +165,7 @@ Tugas 			:
 
 Link tugas github 	:
 
-	- Program Restoran Sederhana 		 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+	- Program Restoran Sederhana 		 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/ProLan11_10115134_AhmadMukhlisSaputra_Tubes
 	- Latihan Array				 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/Tugas%209%20-%20Latihan%20Array
 		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -195,7 +195,7 @@ Tugas 			:
 
 Link tugas github 	:
 
-	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/ProLan11_10115134_AhmadMukhlisSaputra_Tubes
 		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -225,7 +225,7 @@ Tugas 			:
 
 Link tugas github 	:
 
-	- Program Restoran Sederhana 		 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+	- Program Restoran Sederhana 		 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/ProLan11_10115134_AhmadMukhlisSaputra_Tubes
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -254,7 +254,7 @@ Tugas 			:
 
 Link tugas github 	:
 
-	- Program Restoran Sederhana 		 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+	- Program Restoran Sederhana 		 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/ProLan11_10115134_AhmadMukhlisSaputra_Tubes
     	- Data hiding				 : https://github.com/ahmad-mukhlish/ProLan-11/commit/32aab508b805ed46fdd33e1760156c59417aaec3		
 		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -285,7 +285,7 @@ Tugas 			:
 
 Link tugas github 	:
 
-	- Program Restoran Sederhana 		 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+	- Program Restoran Sederhana 		 : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/ProLan11_10115134_AhmadMukhlisSaputra_Tubes
 	- Tagging interface			 : https://github.com/ahmad-mukhlish/ProLan-11/commit/4971469f41ca2cbe955d3ccfe770e372912a904f
 		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -313,7 +313,7 @@ Tugas 			:
 
 Link tugas github 	:
 
-	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/ProLan11_10115134_AhmadMukhlisSaputra_Tubes
 		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -339,7 +339,7 @@ Tugas 			:
 
 Link tugas github 	:
 
-	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/ProLan11_10115134_AhmadMukhlisSaputra_Tubes
 		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -364,6 +364,6 @@ Tugas 			:
 
 Link tugas github 	:
 
-	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/AhmadMukhlisSaputra-10115134-encapIntegration
+	- Program Restoran Sederhana : https://github.com/ahmad-mukhlish/ProLan-11/tree/master/ProLan11_10115134_AhmadMukhlisSaputra_Tubes
 		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
